@@ -22,4 +22,18 @@ class MarvelCharacterJSONParsingTest: XCTestCase {
             "AIM is a terrorist organization bent on destroying the world."
         )
     }
+
+    func testCharacterHasCorrectThumbnailURL() {
+        XCTAssertEqual(
+            character?.thumbnail.path.absoluteString,
+            "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec"
+        )
+    }
+
+    func testCharacterHasCorrectThumbnailFileExtension() {
+        XCTAssertEqual(
+            character?.thumbnail.fileExtension,
+            "jpg"
+        )
+    }
 }
