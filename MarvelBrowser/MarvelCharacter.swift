@@ -11,10 +11,6 @@ struct MarvelCharacter {
 }
 
 extension MarvelCharacter: Unboxable {
-    init(json: [String: Any]) throws {
-        try self.init(unboxer: Unboxer(dictionary: json))
-    }
-
     init(unboxer: Unboxer) throws {
         self.identifier = try unboxer.unbox(key: "id")
         self.name = try unboxer.unbox(key: "name")

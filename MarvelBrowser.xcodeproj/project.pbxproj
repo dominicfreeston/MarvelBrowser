@@ -22,6 +22,7 @@
 		B6BC4AA41F104DED000AD03E /* CharactersResponseJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */; };
 		B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */; };
 		B6BC4AA81F104EBC000AD03E /* charactersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BC4AA71F104EBC000AD03E /* charactersResponse.json */; };
+		B6BC4AAB1F105067000AD03E /* Unboxer+JSONInitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponseJSONParsingTests.swift; sourceTree = "<group>"; };
 		B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		B6BC4AA71F104EBC000AD03E /* charactersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charactersResponse.json; sourceTree = "<group>"; };
+		B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unboxer+JSONInitExtension.swift"; sourceTree = "<group>"; };
 		C187F2176669A40086A71441 /* Pods_MarvelBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A325ABC4CB2AF9206AA431 /* Pods-MarvelBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelBrowser/Pods-MarvelBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		CD56F8B98AC24F6AAEC8AD93 /* Pods-MarvelBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelBrowserTests/Pods-MarvelBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
 				B669CC441F103BDD00B80B93 /* ImageAsset.swift */,
 				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
+				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
 				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
 				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 			);
@@ -364,6 +367,7 @@
 			files = (
 				B669CC471F103C1600B80B93 /* MarvelCharacter.swift in Sources */,
 				B669CC451F103BDD00B80B93 /* ImageAsset.swift in Sources */,
+				B6BC4AAB1F105067000AD03E /* Unboxer+JSONInitExtension.swift in Sources */,
 				B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */,
 				B669CC2A1F0F9E3B00B80B93 /* AppDelegate.swift in Sources */,
 			);
