@@ -13,12 +13,12 @@
 		B669CC2C1F0F9E3B00B80B93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */; };
 		B669CC2F1F0F9E3B00B80B93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */; };
 		B669CC451F103BDD00B80B93 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC441F103BDD00B80B93 /* ImageAsset.swift */; };
-		B669CC471F103C1600B80B93 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC461F103C1600B80B93 /* Character.swift */; };
+		B669CC471F103C1600B80B93 /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC461F103C1600B80B93 /* MarvelCharacter.swift */; };
 		B669CC491F103D2400B80B93 /* ImageAssetJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */; };
 		B669CC4B1F103D5500B80B93 /* imageAsset.json in Resources */ = {isa = PBXBuildFile; fileRef = B669CC4A1F103D5500B80B93 /* imageAsset.json */; };
 		B669CC4D1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift */; };
 		B669CC4F1F1044B800B80B93 /* character.json in Resources */ = {isa = PBXBuildFile; fileRef = B669CC4E1F1044B800B80B93 /* character.json */; };
-		B669CC511F1045A900B80B93 /* CharacterJSONParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC501F1045A900B80B93 /* CharacterJSONParsingTest.swift */; };
+		B669CC511F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +42,12 @@
 		B669CC351F0F9E3B00B80B93 /* MarvelBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B669CC391F0F9E3B00B80B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B669CC441F103BDD00B80B93 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
-		B669CC461F103C1600B80B93 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		B669CC461F103C1600B80B93 /* MarvelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
 		B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAssetJSONParsingTests.swift; sourceTree = "<group>"; };
 		B669CC4A1F103D5500B80B93 /* imageAsset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imageAsset.json; sourceTree = "<group>"; };
 		B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+LoadJSONExtension.swift"; sourceTree = "<group>"; };
 		B669CC4E1F1044B800B80B93 /* character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = character.json; sourceTree = "<group>"; };
-		B669CC501F1045A900B80B93 /* CharacterJSONParsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterJSONParsingTest.swift; sourceTree = "<group>"; };
+		B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharacterJSONParsingTest.swift; sourceTree = "<group>"; };
 		C187F2176669A40086A71441 /* Pods_MarvelBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A325ABC4CB2AF9206AA431 /* Pods-MarvelBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelBrowser/Pods-MarvelBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		CD56F8B98AC24F6AAEC8AD93 /* Pods-MarvelBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelBrowserTests/Pods-MarvelBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 				B669CC301F0F9E3B00B80B93 /* Info.plist */,
 				B669CC441F103BDD00B80B93 /* ImageAsset.swift */,
-				B669CC461F103C1600B80B93 /* Character.swift */,
+				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
 			);
 			path = MarvelBrowser;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 				B669CC4E1F1044B800B80B93 /* character.json */,
 				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
 				B669CC391F0F9E3B00B80B93 /* Info.plist */,
-				B669CC501F1045A900B80B93 /* CharacterJSONParsingTest.swift */,
+				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
 				B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */,
 				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift */,
 			);
@@ -344,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B669CC471F103C1600B80B93 /* Character.swift in Sources */,
+				B669CC471F103C1600B80B93 /* MarvelCharacter.swift in Sources */,
 				B669CC451F103BDD00B80B93 /* ImageAsset.swift in Sources */,
 				B669CC2A1F0F9E3B00B80B93 /* AppDelegate.swift in Sources */,
 			);
@@ -356,7 +356,7 @@
 			files = (
 				B669CC4D1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift in Sources */,
 				B669CC491F103D2400B80B93 /* ImageAssetJSONParsingTests.swift in Sources */,
-				B669CC511F1045A900B80B93 /* CharacterJSONParsingTest.swift in Sources */,
+				B669CC511F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

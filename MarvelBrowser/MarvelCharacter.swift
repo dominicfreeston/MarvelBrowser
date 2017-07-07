@@ -3,14 +3,14 @@ import Unbox
 
 typealias CharacterIdentifier = Int
 
-struct Character {
+struct MarvelCharacter {
     let identifier: CharacterIdentifier
     let name: String
     let description: String
     let thumbnail: ImageAsset
 }
 
-extension Character: Unboxable {
+extension MarvelCharacter: Unboxable {
     init(json: [String: Any]) throws {
         try self.init(unboxer: Unboxer(dictionary: json))
     }
