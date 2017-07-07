@@ -17,8 +17,8 @@ extension Character: Unboxable {
 
     init(unboxer: Unboxer) throws {
         self.identifier = try unboxer.unbox(key: "id")
-        self.name = ""
-        self.description = ""
+        self.name = try unboxer.unbox(key: "name")
+        self.description = try unboxer.unbox(key: "description")
         self.thumbnail = ImageAsset(path: URL(fileURLWithPath: ""), fileExtension: "")
     }
 }
