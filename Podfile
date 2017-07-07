@@ -7,6 +7,8 @@ target 'MarvelBrowser' do
 
   target 'MarvelBrowserTests' do
     inherit! :search_paths
+
+    pod 'FBSnapshotTestCase', '2.1.4'
   end
 
 end

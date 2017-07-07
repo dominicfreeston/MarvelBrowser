@@ -529,7 +529,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EDD7434B481BA6361B333816 /* Pods-MarvelBrowserTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MarvelBrowserTests/Info.plist;
@@ -546,7 +545,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD56F8B98AC24F6AAEC8AD93 /* Pods-MarvelBrowserTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MarvelBrowserTests/Info.plist;

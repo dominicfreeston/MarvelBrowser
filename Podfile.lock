@@ -1,12 +1,19 @@
 PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
   - Unbox (2.5.0)
 
 DEPENDENCIES:
+  - FBSnapshotTestCase (= 2.1.4)
   - Unbox (= 2.5.0)
 
 SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 
-PODFILE CHECKSUM: dceed50dcc9471742be188103f8223cddecf4b84
+PODFILE CHECKSUM: b7423e2968e63a52f01abd75f6dbfbcc3ec3ade9
 
 COCOAPODS: 1.2.1
