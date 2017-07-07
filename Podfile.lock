@@ -5,18 +5,21 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - PureLayout (3.0.2)
+  - RxSwift (3.5.0)
   - Unbox (2.5.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (= 2.1.4)
   - PureLayout (= 3.0.2)
+  - RxSwift (= 3.5.0)
   - Unbox (= 2.5.0)
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 
-PODFILE CHECKSUM: 3c6e70ec963af4fdbf12376df1d0a514c6c2bbc8
+PODFILE CHECKSUM: fb5a3c5c2a3c32c2f7b3f26dc7639b008c0457b7
 
 COCOAPODS: 1.2.1
