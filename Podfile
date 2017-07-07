@@ -3,6 +3,7 @@ platform :ios, '10.0'
 target 'MarvelBrowser' do
   use_frameworks!
 
+  pod 'PureLayout', '3.0.2'
   pod 'Unbox', '2.5.0'
 
   target 'MarvelBrowserTests' do
