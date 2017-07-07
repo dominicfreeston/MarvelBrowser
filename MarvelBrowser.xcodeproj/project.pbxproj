@@ -112,13 +112,13 @@
 		B669CC281F0F9E3B00B80B93 /* MarvelBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
-				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
-				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 				B669CC301F0F9E3B00B80B93 /* Info.plist */,
+				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
+				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
 				B669CC441F103BDD00B80B93 /* ImageAsset.swift */,
 				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
-				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
+				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
+				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 			);
 			path = MarvelBrowser;
 			sourceTree = "<group>";
@@ -126,9 +126,7 @@
 		B669CC381F0F9E3B00B80B93 /* MarvelBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				B669CC4E1F1044B800B80B93 /* character.json */,
-				B6BC4AA71F104EBC000AD03E /* charactersResponse.json */,
-				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
+				B6BC4AA91F105013000AD03E /* Test Data */,
 				B669CC391F0F9E3B00B80B93 /* Info.plist */,
 				B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */,
 				B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */,
@@ -136,6 +134,16 @@
 				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadJSONExtension.swift */,
 			);
 			path = MarvelBrowserTests;
+			sourceTree = "<group>";
+		};
+		B6BC4AA91F105013000AD03E /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				B669CC4E1F1044B800B80B93 /* character.json */,
+				B6BC4AA71F104EBC000AD03E /* charactersResponse.json */,
+				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
+			);
+			name = "Test Data";
 			sourceTree = "<group>";
 		};
 		FCF048BF880D39050057156D /* Pods */ = {
