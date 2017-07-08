@@ -10,8 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
 
+        let navController = UINavigationController(rootViewController: MarvelCharacterListViewController())
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UIViewController() // Replace with yours
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
         return true
     }
