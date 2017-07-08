@@ -11,14 +11,7 @@ class MarvelCharacterViewSnapshotTests: FBSnapshotTestCase {
     }
 
     func testCharacterView() {
-        let characterJSON = loadJSON(named: "character")
-        let character = try! MarvelCharacter(json: characterJSON)
-        let image = loadImage(named: "aim")
-        let mockImageService = MockImageService([
-            "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec/standard_medium.jpg": image
-            ])
-
-        let characterView = MarvelCharacterView(imageService: mockImageService)
+        let characterView = MarvelCharacterView(imageService: marvelMockImageService)
 
         let contentView = UIView()
         contentView.addSubview(characterView)
@@ -26,8 +19,8 @@ class MarvelCharacterViewSnapshotTests: FBSnapshotTestCase {
         contentView.autoSetDimension(.width, toSize: 375)
         characterView.autoPinEdgesToSuperviewEdges()
 
+        let character = try! MarvelCharacter(json: loadJSON(named: "character"))
         characterView.update(with: character)
-
         FBSnapshotVerifyView(characterView)
     }
 }

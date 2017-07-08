@@ -11,16 +11,12 @@ class URLImageViewSnapshotTests: FBSnapshotTestCase {
     }
 
     func testURLImageViewGetsImageFromService() {
-        let url = URL(string: "http://some.com")!
-        let image = loadImage(named: "aim")
-
-        let mockImageService = MockImageService([url.absoluteString: image])
         let urlImageView = URLImageView(
             frame: CGRect(x: 0, y: 0, width: 64, height: 64),
-            imageService: mockImageService
+            imageService: marvelMockImageService
         )
 
-        urlImageView.update(with: url)
+        urlImageView.update(with: AIM_IMAGE_URL)
 
         FBSnapshotVerifyView(urlImageView)
     }
