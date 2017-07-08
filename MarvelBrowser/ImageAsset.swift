@@ -2,8 +2,18 @@ import Foundation
 import Unbox
 
 struct ImageAsset {
+    enum Size: String {
+        case squareMedium = "standard_medium"
+    }
+
     let path: URL
     let fileExtension: String
+
+    func url(for size: ImageAsset.Size) -> URL {
+        return path
+            .appendingPathComponent(size.rawValue)
+            .appendingPathExtension(fileExtension)
+    }
 }
 
 extension ImageAsset: Unboxable {
