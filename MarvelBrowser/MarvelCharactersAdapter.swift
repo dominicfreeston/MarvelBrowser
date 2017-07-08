@@ -5,9 +5,13 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
 
     func setup(tableView: UITableView) {
         tableView.register(TableViewCell<MarvelCharacterView>.self)
+
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .none
+
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
