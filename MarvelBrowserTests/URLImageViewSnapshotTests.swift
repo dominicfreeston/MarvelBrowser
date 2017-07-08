@@ -7,7 +7,7 @@ class URLImageViewSnapshotTests: FBSnapshotTestCase {
     override func setUp() {
         super.setUp()
 
-        recordMode = false
+        recordMode = RECORD_SNAPSHOTS
     }
 
     func testURLImageViewGetsImageFromService() {

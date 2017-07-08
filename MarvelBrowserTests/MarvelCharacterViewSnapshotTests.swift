@@ -21,7 +21,7 @@ class MarvelCharacterViewSnapshotTests: FBSnapshotTestCase {
         contentView.addSubview(characterView)
         characterView.autoPinEdgesToSuperviewEdges()
 
-        recordMode = false
+        recordMode = RECORD_SNAPSHOTS
     }
 
     func testCharacterView() {
