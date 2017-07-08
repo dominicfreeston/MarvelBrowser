@@ -125,14 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				B669CC301F0F9E3B00B80B93 /* Info.plist */,
-				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
-				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
-				B669CC441F103BDD00B80B93 /* ImageAsset.swift */,
-				B6F38CE61F10D161000A5BA8 /* ImageService.swift */,
-				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
-				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
-				B6F38CEC1F10D237000A5BA8 /* URLImageView.swift */,
 				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
+				B6F38CF81F10D796000A5BA8 /* Character */,
+				B6F38CEE1F10D625000A5BA8 /* Common */,
+				B6F38CF91F10D7A0000A5BA8 /* Image */,
 				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 			);
 			path = MarvelBrowser;
@@ -141,14 +137,11 @@
 		B669CC381F0F9E3B00B80B93 /* MarvelBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6BC4AA91F105013000AD03E /* Test Data */,
 				B669CC391F0F9E3B00B80B93 /* Info.plist */,
-				B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */,
-				B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */,
-				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
-				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadExtension.swift */,
-				B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */,
-				B6F38CE81F10D223000A5BA8 /* URLImageViewSnapshotTests.swift */,
+				B6F38CFA1F10D7BF000A5BA8 /* Character */,
+				B6F38CEF1F10D660000A5BA8 /* Helpers */,
+				B6F38CFB1F10D7CA000A5BA8 /* Image */,
+				B6BC4AA91F105013000AD03E /* Test Data */,
 			);
 			path = MarvelBrowserTests;
 			sourceTree = "<group>";
@@ -162,6 +155,61 @@
 				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
 			);
 			name = "Test Data";
+			sourceTree = "<group>";
+		};
+		B6F38CEE1F10D625000A5BA8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
+				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		B6F38CEF1F10D660000A5BA8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */,
+				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadExtension.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		B6F38CF81F10D796000A5BA8 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
+				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
+		B6F38CF91F10D7A0000A5BA8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B669CC441F103BDD00B80B93 /* ImageAsset.swift */,
+				B6F38CE61F10D161000A5BA8 /* ImageService.swift */,
+				B6F38CEC1F10D237000A5BA8 /* URLImageView.swift */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		B6F38CFA1F10D7BF000A5BA8 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */,
+				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
+			);
+			name = Character;
+			sourceTree = "<group>";
+		};
+		B6F38CFB1F10D7CA000A5BA8 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */,
+				B6F38CE81F10D223000A5BA8 /* URLImageViewSnapshotTests.swift */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		FCF048BF880D39050057156D /* Pods */ = {
