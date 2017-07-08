@@ -7,19 +7,13 @@ class MarvelCharacterViewSnapshotTests: FBSnapshotTestCase {
 
     var character: MarvelCharacter!
     var characterView: MarvelCharacterView!
-    var contentView: UIView!
 
     override func setUp() {
         super.setUp()
 
         character = try! MarvelCharacter(json: loadJSON(named: "character"))
-
-        contentView = UIView()
-        contentView.autoSetDimension(.width, toSize: 375)
-
         characterView = MarvelCharacterView(imageService: marvelMockImageService)
-        contentView.addSubview(characterView)
-        characterView.autoPinEdgesToSuperviewEdges()
+        characterView.autoSetDimension(.width, toSize: 375)
 
         recordMode = RECORD_SNAPSHOTS
     }
