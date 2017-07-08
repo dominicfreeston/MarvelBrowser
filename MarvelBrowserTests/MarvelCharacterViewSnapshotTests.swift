@@ -23,6 +23,11 @@ class MarvelCharacterViewSnapshotTests: FBSnapshotTestCase {
         FBSnapshotVerifyView(characterView)
     }
 
+    func testCharacterViewHasPlaceholderImage() {
+        characterView.update(with: character.withInvalidImageURL())
+        FBSnapshotVerifyView(characterView)
+    }
+
     func testCharacterViewWithLongDescription() {
         characterView.update(with: character.withRepeatedDescription())
         FBSnapshotVerifyView(characterView)
@@ -42,6 +47,15 @@ private extension MarvelCharacter {
             name: name,
             description: newDescription,
             thumbnail: thumbnail
+        )
+    }
+
+    func withInvalidImageURL() -> MarvelCharacter {
+        return MarvelCharacter(
+            identifier: identifier,
+            name: name,
+            description: description,
+            thumbnail: ImageAsset(path: URL(string: "http://invalidPath.com")!, fileExtension: "jpg")
         )
     }
 }

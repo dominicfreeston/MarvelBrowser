@@ -37,6 +37,8 @@ class MarvelCharacterView: UIView {
     }
 
     private func setup() {
+        imageView.placeholderImage = #imageLiteral(resourceName: "marvel-logo")
+
         nameLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
 

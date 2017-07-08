@@ -8,6 +8,8 @@ class URLImageView: UIImageView {
     private var disposeBag = DisposeBag()
     private var currentURL: URL?
 
+    var placeholderImage: UIImage?
+
     init(frame: CGRect = .zero, imageService: ImageService) {
         self.imageService = imageService
         super.init(frame: frame)
@@ -22,7 +24,7 @@ class URLImageView: UIImageView {
             return
         }
 
-        image = nil
+        image = placeholderImage
         currentURL = url
         disposeBag = DisposeBag()
 
