@@ -43,7 +43,10 @@ class MarvelCharacterView: UIView {
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .equalCentering
 
-        let horizontalStackView = UIStackView(arrangedSubviews: [imageView, verticalStackView])
+        let imageViewWrapper = UIView()
+        imageViewWrapper.addSubview(imageView)
+
+        let horizontalStackView = UIStackView(arrangedSubviews: [imageViewWrapper, verticalStackView])
         horizontalStackView.axis = .horizontal
         horizontalStackView.spacing = spacing
 
@@ -52,5 +55,8 @@ class MarvelCharacterView: UIView {
         horizontalStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: spacing, left: spacing, bottom:
             spacing, right: spacing))
         imageView.autoSetDimensions(to: CGSize(width: 64, height: 64))
+
+        imageView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        imageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0, relation: .greaterThanOrEqual)
     }
 }
