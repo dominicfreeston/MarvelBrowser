@@ -1,21 +1,13 @@
 import UIKit
 import PureLayout
 
-// TODO: Replace this with a proper default HTTPImageService
-import RxSwift
-class EmptyImageService: ImageService {
-    func image(for url: URL) -> Observable<UIImage> {
-        return Observable.empty()
-    }
-}
-
 class MarvelCharacterView: UIView {
     let nameLabel = UILabel()
     let descriptionLabel = UILabel()
     let imageView: URLImageView
 
     override convenience init(frame: CGRect) {
-        self.init(frame: frame, imageService: EmptyImageService())
+        self.init(frame: frame, imageService: HTTPImageService())
     }
 
     init(frame: CGRect = .zero, imageService: ImageService) {
