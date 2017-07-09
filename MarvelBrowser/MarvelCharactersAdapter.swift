@@ -2,6 +2,7 @@ import UIKit
 
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     var characters = [MarvelCharacter]()
+    var loadMoreAction: (() -> Void)?
 
     func setup(tableView: UITableView) {
         tableView.register(TableViewCell<MarvelCharacterView>.self)
@@ -46,6 +47,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? TableViewCell<LoadingMoreView> {
             cell.view.start()
+            loadMoreAction?()
         }
     }
 }

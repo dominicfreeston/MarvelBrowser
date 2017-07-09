@@ -33,4 +33,16 @@ class MarvelCharactersAdapterTests: XCTestCase {
         let view = (cell as? TableViewCell<MarvelCharacterView>)?.view
         XCTAssertEqual(view?.nameLabel.text, "A.I.M.")
     }
+
+    func testItTriggersTheLoadActionWhenDisplayingALoadingMoreCell() {
+        var called = false
+
+        adapter.loadMoreAction = {
+            called = true
+        }
+
+        adapter.tableView(tableView, willDisplay: TableViewCell<LoadingMoreView>(), forRowAt: IndexPath(row: 0, section: 2))
+
+        XCTAssertTrue(called)
+    }
 }
