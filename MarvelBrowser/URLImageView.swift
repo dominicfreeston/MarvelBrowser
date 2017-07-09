@@ -34,8 +34,16 @@ class URLImageView: UIImageView {
 
         imageService.image(for: url)
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] image in
-                self?.image = image
-            }).addDisposableTo(disposeBag)
+            .subscribe(onNext: crossFade)
+            .addDisposableTo(disposeBag)
+    }
+
+    func crossFade(image: UIImage) {
+        UIView.transition(
+            with: self,
+            duration: 0.2,
+            options: .transitionCrossDissolve,
+            animations: { self.image = image },
+            completion: nil)
     }
 }
