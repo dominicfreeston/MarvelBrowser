@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 
 protocol MarvelCharactersUseCase {
-    func characters() -> Observable<[MarvelCharacter]>
+    func characters() -> Observable<MarvelCharactersList>
     func loadMoreCharacters()
 }
 
@@ -10,8 +10,8 @@ class FakeMarvelCharactersUseCase: MarvelCharactersUseCase {
     private let charactersCache = Variable([MarvelCharacter]())
     private var currentlyLoading = false
 
-    func characters() -> Observable<[MarvelCharacter]> {
-        return charactersCache.asObservable()
+    func characters() -> Observable<MarvelCharactersList> {
+        return charactersCache.asObservable().map(MarvelCharactersList.init)
     }
 
     func loadMoreCharacters() {

@@ -7,9 +7,9 @@ class MarvelCharactersAdapterTests: XCTestCase {
     var tableView: UITableView!
     var cell: UITableViewCell!
 
-    var characters: [MarvelCharacter] {
+    var characters: MarvelCharactersList {
         let response = try! CharactersResponse(json: loadJSON(named: "charactersResponse"))
-        return response.characters
+        return MarvelCharactersList(characters: response.characters)
     }
 
     override func setUp() {
@@ -17,7 +17,7 @@ class MarvelCharactersAdapterTests: XCTestCase {
         tableView = UITableView()
         adapter = MarvelCharactersAdapter()
         adapter.setup(tableView: tableView)
-        adapter.characters = characters
+        adapter.charactersList = characters
         cell = adapter.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 0))
     }
 

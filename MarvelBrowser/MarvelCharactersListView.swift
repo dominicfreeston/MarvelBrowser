@@ -15,8 +15,8 @@ class MarvelCharacterListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func update(with characters: [MarvelCharacter]) {
-        adapter.characters = characters
+    func update(with charactersList: MarvelCharactersList) {
+        adapter.charactersList = charactersList
         tableView.reloadData()
     }
 

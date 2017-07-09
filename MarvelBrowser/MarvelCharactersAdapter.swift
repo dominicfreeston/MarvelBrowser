@@ -1,7 +1,7 @@
 import UIKit
 
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var characters = [MarvelCharacter]()
+    var charactersList = MarvelCharactersList.empty
     var loadMoreAction: (() -> Void)?
 
     func setup(tableView: UITableView) {
@@ -22,7 +22,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return characters.count
+        case 0: return charactersList.characters.count
         case 1: return 1
         default: preconditionFailure("Unexpected Section")
         }
@@ -33,7 +33,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         switch indexPath.section {
         case 0:
             let cell: TableViewCell<MarvelCharacterView> = tableView.dequeueReusableCell(for: indexPath)
-            let character = characters[indexPath.row]
+            let character = charactersList.characters[indexPath.row]
             cell.view.update(with: character)
             return cell
         case 1:
