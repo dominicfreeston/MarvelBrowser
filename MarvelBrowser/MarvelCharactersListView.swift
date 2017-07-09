@@ -17,7 +17,6 @@ class MarvelCharacterListView: UIView {
 
     func update(with charactersList: MarvelCharactersList) {
         adapter.charactersList = charactersList
-        tableView.reloadData()
     }
 
     private func setup() {

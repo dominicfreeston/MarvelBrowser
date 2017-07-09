@@ -1,10 +1,20 @@
 import UIKit
+import Dwifft
 
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var charactersList = MarvelCharactersList.empty
+    var charactersList = MarvelCharactersList.empty {
+        didSet {
+            diffCalculator.sectionedValues = charactersList.asSectionedValues()
+        }
+    }
+
     var loadMoreAction: (() -> Void)?
+    var diffCalculator: TableViewDiffCalculator<Int, CharactersListItem>!
 
     func setup(tableView: UITableView) {
+        diffCalculator = TableViewDiffCalculator(tableView: tableView)
+        diffCalculator.insertionAnimation = .fade
+
         tableView.register(TableViewCell<MarvelCharacterView>.self)
         tableView.register(TableViewCell<LoadingMoreView>.self)
 
@@ -17,30 +27,24 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return charactersList.moreAvailable ? 2 : 1
+        return diffCalculator.numberOfSections()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return charactersList.characters.count
-        case 1: return 1
-        default: preconditionFailure("Unexpected Section")
-        }
-
+        return diffCalculator.numberOfObjects(inSection: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
+        let item = diffCalculator.value(atIndexPath: indexPath)
+
+        switch item {
+        case .character(let character):
             let cell: TableViewCell<MarvelCharacterView> = tableView.dequeueReusableCell(for: indexPath)
-            let character = charactersList.characters[indexPath.row]
             cell.view.update(with: character)
             return cell
-        case 1:
+        case .loadMore:
             let cell: TableViewCell<LoadingMoreView> = tableView.dequeueReusableCell(for: indexPath)
             return cell
-        default:
-            preconditionFailure("Unexpected Section")
         }
     }
 
@@ -51,3 +55,16 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
 }
+
+private extension MarvelCharactersList {
+    func asSectionedValues() -> SectionedValues<Int, CharactersListItem> {
+        let chars = characters.map(CharactersListItem.character)
+
+        if moreAvailable {
+            return SectionedValues([(0, chars), (1, [.loadMore])])
+        } else {
+            return SectionedValues([(0, chars)])
+        }
+    }
+}
+
