@@ -3,17 +3,20 @@ import XCTest
 
 class MarvelCharactersResponseJSONParsingTests: XCTestCase {
 
-    func testCharacterResponseIncludesTotalNumberOfAvailableCharacters() {
+    var charactersResponse: MarvelCharactersResponse? {
         let json = loadJSON(named: "charactersResponse")
-        let charactersResponse = try? MarvelCharactersResponse(json: json)
+        return try? MarvelCharactersResponse(json: json)
+    }
 
+    func testCharacterReponseHasExpectedOffset() {
+        XCTAssertEqual(charactersResponse?.offset, 0)
+    }
+
+    func testCharacterResponseIncludesTotalNumberOfAvailableCharacters() {
         XCTAssertEqual(charactersResponse?.total, 1485)
     }
 
     func testCharacterReponseHasExpectedNumberOfCharacters() {
-        let json = loadJSON(named: "charactersResponse")
-        let charactersResponse = try? MarvelCharactersResponse(json: json)
-
         XCTAssertEqual(charactersResponse?.characters.count, 20)
     }
 
