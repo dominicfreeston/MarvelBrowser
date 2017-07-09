@@ -7,6 +7,12 @@ class MarvelCharacterView: UIView {
     let imageView: URLImageView
 
     override convenience init(frame: CGRect) {
+        #if DEBUG
+            if isRunningTests() {
+                self.init(frame: frame, imageService: EmptyImageService())
+                return
+            }
+        #endif
         self.init(frame: frame, imageService: HTTPImageService())
     }
 

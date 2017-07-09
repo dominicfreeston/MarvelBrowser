@@ -23,6 +23,7 @@
 		B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */; };
 		B6BC4AA81F104EBC000AD03E /* charactersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BC4AA71F104EBC000AD03E /* charactersResponse.json */; };
 		B6BC4AAB1F105067000AD03E /* Unboxer+JSONInitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */; };
+		B6C0DFBA1F12251C00647411 /* UnitTestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */; };
 		B6F38CE51F10D12A000A5BA8 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */; };
 		B6F38CE71F10D161000A5BA8 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F38CE61F10D161000A5BA8 /* ImageService.swift */; };
 		B6F38CE91F10D223000A5BA8 /* URLImageViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F38CE81F10D223000A5BA8 /* URLImageViewSnapshotTests.swift */; };
@@ -71,6 +72,7 @@
 		B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		B6BC4AA71F104EBC000AD03E /* charactersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charactersResponse.json; sourceTree = "<group>"; };
 		B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unboxer+JSONInitExtension.swift"; sourceTree = "<group>"; };
+		B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestEnvironment.swift; sourceTree = "<group>"; };
 		B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
 		B6F38CE61F10D161000A5BA8 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		B6F38CE81F10D223000A5BA8 /* URLImageViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageViewSnapshotTests.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
 				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
 				B6F38D061F10EED6000A5BA8 /* UITableView+DequeueAndRegister.swift */,
+				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				B6F38CED1F10D237000A5BA8 /* URLImageView.swift in Sources */,
 				B669CC471F103C1600B80B93 /* MarvelCharacter.swift in Sources */,
 				B669CC451F103BDD00B80B93 /* ImageAsset.swift in Sources */,
+				B6C0DFBA1F12251C00647411 /* UnitTestEnvironment.swift in Sources */,
 				B6F38D071F10EED6000A5BA8 /* UITableView+DequeueAndRegister.swift in Sources */,
 				B6F38D051F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift in Sources */,
 				B6F38D0F1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift in Sources */,

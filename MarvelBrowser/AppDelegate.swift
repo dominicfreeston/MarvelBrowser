@@ -10,6 +10,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
 
+        #if DEBUG
+        if isRunningTests() {
+            return true
+        }
+        #endif
+
         let navController = UINavigationController(rootViewController: MarvelCharacterListViewController())
 
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -19,4 +25,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

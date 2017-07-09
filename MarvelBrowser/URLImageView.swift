@@ -32,7 +32,7 @@ class URLImageView: UIImageView {
             return
         }
 
-        return imageService.image(for: url)
+        imageService.image(for: url)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] image in
                 self?.image = image
