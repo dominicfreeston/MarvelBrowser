@@ -11,9 +11,14 @@ enum DataConversionError: Error {
 }
 
 class HTTPImageService: ImageService {
+
+    static let shared: HTTPImageService = {
+        return HTTPImageService(urlSession: newImageCachingSession())
+    }()
+
     let urlSession: URLSession
 
-    init(urlSession: URLSession = URLSession.shared) {
+    init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
 
@@ -27,5 +32,22 @@ class HTTPImageService: ImageService {
                 }
                 return image
         }
+    }
+
+    private static func newImageCachingSession() -> URLSession {
+        let imageCache = URLCache(
+            memoryCapacity: 4 * 1024 * 1024,
+            diskCapacity: 40 * 1024 * 1024,
+            diskPath: "ImageCache")
+
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = imageCache
+        configuration.httpCookieStorage = .shared
+        configuration.urlCredentialStorage = .shared
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+
+        let session = URLSession(configuration: configuration)
+        
+        return session
     }
 }

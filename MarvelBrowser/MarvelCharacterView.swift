@@ -13,7 +13,7 @@ class MarvelCharacterView: UIView {
                 return
             }
         #endif
-        self.init(frame: frame, imageService: HTTPImageService())
+        self.init(frame: frame, imageService: HTTPImageService.shared)
     }
 
     init(frame: CGRect = .zero, imageService: ImageService) {
