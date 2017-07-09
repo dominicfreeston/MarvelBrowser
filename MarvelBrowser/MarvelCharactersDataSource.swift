@@ -24,7 +24,11 @@ class MarvelAPICharactersDataSource: MarvelCharactersDataSource {
     }
 }
 
-class FakeMarvelCharactersDataSource: MarvelCharactersDataSource {
+protocol MarvelCharactersCachingDataSource: MarvelCharactersDataSource {
+    func cache(response: MarvelCharactersResponse)
+}
+
+class FakeMarvelCharactersDataSource: MarvelCharactersCachingDataSource {
     let scheduler = ConcurrentDispatchQueueScheduler(qos: .background)
 
     func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
@@ -34,7 +38,11 @@ class FakeMarvelCharactersDataSource: MarvelCharactersDataSource {
         return Observable.empty()
     }
 
-    func fakeData(offset: Int) -> MarvelCharactersResponse {
+    func cache(response: MarvelCharactersResponse) {
+        // noop
+    }
+
+    private func fakeData(offset: Int) -> MarvelCharactersResponse {
         guard let path = Bundle.main.path(forResource: "charactersResponse", ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let json = try? JSONSerialization.jsonObject(with: data, options: []),

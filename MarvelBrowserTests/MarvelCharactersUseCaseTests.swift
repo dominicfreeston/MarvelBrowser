@@ -22,15 +22,19 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         }
     }
 
-    class FakeStorageDataSource: MarvelCharactersDataSource {
-        var response: MarvelCharactersResponse?
+    class FakeStorageDataSource: MarvelCharactersCachingDataSource {
+        var responses = [Int: MarvelCharactersResponse]()
         var numberOfReponses = 0
 
         func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
-            if let response = response {
+            if let response = responses[offset] {
                 return Observable.just(response.with(offset: offset)).do(onNext: { _ in self.numberOfReponses += 1 })
             }
             return Observable.empty()
+        }
+
+        func cache(response: MarvelCharactersResponse) {
+            responses[response.offset] = response
         }
     }
 
@@ -95,7 +99,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     }
 
     func testUseCaseFetchesDataFromStorageFirst() {
-        storageDataSource.response = response
+        storageDataSource.responses = [0: response]
 
         useCase.loadMoreCharacters()
 
@@ -105,14 +109,23 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     }
 
     func testUseCaseFallsBackOnTheAPIAndCombinesTheData() {
-        storageDataSource.response = response
+        storageDataSource.responses = [0: response]
         useCase.loadMoreCharacters()
-        storageDataSource.response = nil
         useCase.loadMoreCharacters()
 
         XCTAssertEqual(apiDataSource.numberOfReponses, 1)
         XCTAssertEqual(storageDataSource.numberOfReponses, 1)
         XCTAssertEqual(lastValue?.characters.count, 40)
+    }
+
+    func testUseCaseUpdatesTheStorageCacheWithResponses() {
+        useCase.loadMoreCharacters()
+        XCTAssertNotNil(storageDataSource.responses[0])
+        XCTAssertEqual(storageDataSource.responses.count, 1)
+
+        useCase.loadMoreCharacters()
+        XCTAssertNotNil(storageDataSource.responses[20])
+        XCTAssertEqual(storageDataSource.responses.count, 2)
     }
 }
 

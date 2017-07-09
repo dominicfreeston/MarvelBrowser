@@ -8,7 +8,7 @@ protocol MarvelCharactersUseCaseType {
 
 class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
     private let apiDataSource: MarvelCharactersDataSource
-    private let storageDataSource: MarvelCharactersDataSource
+    private let storageDataSource: MarvelCharactersCachingDataSource
     private let charactersCache = Variable(MarvelCharactersList.empty)
     private let updateDataScheduler: ImmediateSchedulerType
     private let disposeBag = DisposeBag()
@@ -16,7 +16,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
     private var currentlyLoading = false
 
     init(apiDataSource: MarvelCharactersDataSource,
-         storageDataSource: MarvelCharactersDataSource = FakeMarvelCharactersDataSource(),
+         storageDataSource: MarvelCharactersCachingDataSource = FakeMarvelCharactersDataSource(),
          updateDataScheduler: ImmediateSchedulerType = ConcurrentDispatchQueueScheduler(qos: .background)) {
         self.apiDataSource = apiDataSource
         self.storageDataSource = storageDataSource
@@ -50,6 +50,8 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
     }
 
     private func updateCharactersList(response: MarvelCharactersResponse) {
+        storageDataSource.cache(response: response)
+
         let currentCharacters = charactersCache.value.characters
         let allCharacters = currentCharacters + response.characters
         let moreAvailable = response.total > allCharacters.count
