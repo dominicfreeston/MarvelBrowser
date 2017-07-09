@@ -215,13 +215,13 @@
 			children = (
 				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
 				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
-				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
 				B6F38D041F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift */,
-				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
+				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
 				B6C0DFC11F123DAB00647411 /* MarvelCharactersList.swift */,
+				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
 				B6F38D0E1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift */,
 				B6C0DFBB1F12293500647411 /* MarvelCharactersUseCase.swift */,
-				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
+				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
 			);
 			name = Character;
 			sourceTree = "<group>";

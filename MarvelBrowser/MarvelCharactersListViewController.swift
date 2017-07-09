@@ -2,12 +2,14 @@ import UIKit
 import PureLayout
 import RxSwift
 
+let MARVEL_USE_CASE = MarvelCharactersUseCase(apiDataSource: FakeMarvelCharactersDataSource())
+
 class MarvelCharacterListViewController: UIViewController {
     private let listView = MarvelCharacterListView()
     private let useCase: MarvelCharactersUseCaseType
     private let disposeBag = DisposeBag()
 
-    init(useCase: MarvelCharactersUseCaseType = FakeMarvelCharactersUseCase()) {
+    init(useCase: MarvelCharactersUseCaseType = MARVEL_USE_CASE) {
         self.useCase = useCase
 
         super.init(nibName: nil, bundle: nil)
