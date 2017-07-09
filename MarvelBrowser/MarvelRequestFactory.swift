@@ -1,12 +1,26 @@
 import Foundation
 
 struct MarvelRequestFactory {
-    let publicKey: String
-    let privateKey: String
-    let baseURLString: String
+    private let publicKey: String
+    private let privateKey: String
+    private let baseURLString: String
+
+    static var defaultFactory: MarvelRequestFactory {
+        return MarvelRequestFactory(
+            publicKey: MARVEL_PUBLIC_KEY,
+            privateKey: MARVEL_PRIVATE_KEY,
+            baseURLString: MARVEL_BASE_URL
+        )
+    }
+
+    init(publicKey: String, privateKey: String, baseURLString: String) {
+        self.publicKey = publicKey
+        self.privateKey = privateKey
+        self.baseURLString = baseURLString
+    }
 
     func charactersRequest(offset: Int,
-        timestamp: TimeInterval = Date().timeIntervalSinceReferenceDate) -> URLRequest {
+                           timestamp: TimeInterval = Date().timeIntervalSinceReferenceDate) -> URLRequest {
         return marvelRequest(
             path: "/v1/public/characters",
             parameters: ["offset": "\(offset)"],

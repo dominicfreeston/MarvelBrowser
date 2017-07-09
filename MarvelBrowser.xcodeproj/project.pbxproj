@@ -23,6 +23,8 @@
 		B6A6B7E81F1260B1009267EB /* StringMD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7E71F1260B1009267EB /* StringMD5Tests.swift */; };
 		B6A6B7EA1F126786009267EB /* MarvelRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7E91F126786009267EB /* MarvelRequestFactory.swift */; };
 		B6A6B7EC1F126A24009267EB /* MarvelRequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7EB1F126A24009267EB /* MarvelRequestFactoryTests.swift */; };
+		B6A6B7EF1F126F8C009267EB /* Data+ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */; };
+		B6A6B7F41F1270B1009267EB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7F31F1270B1009267EB /* Config.swift */; };
 		B6BC4AA41F104DED000AD03E /* CharactersResponseJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */; };
 		B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */; };
 		B6BC4AA81F104EBC000AD03E /* charactersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BC4AA71F104EBC000AD03E /* charactersResponse.json */; };
@@ -81,6 +83,8 @@
 		B6A6B7E71F1260B1009267EB /* StringMD5Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMD5Tests.swift; sourceTree = "<group>"; };
 		B6A6B7E91F126786009267EB /* MarvelRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelRequestFactory.swift; sourceTree = "<group>"; };
 		B6A6B7EB1F126A24009267EB /* MarvelRequestFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelRequestFactoryTests.swift; sourceTree = "<group>"; };
+		B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+ToJSON.swift"; sourceTree = "<group>"; };
+		B6A6B7F31F1270B1009267EB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponseJSONParsingTests.swift; sourceTree = "<group>"; };
 		B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		B6BC4AA71F104EBC000AD03E /* charactersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charactersResponse.json; sourceTree = "<group>"; };
@@ -144,11 +148,12 @@
 		B669CC1D1F0F9E3B00B80B93 = {
 			isa = PBXGroup;
 			children = (
+				B6A6B7F31F1270B1009267EB /* Config.swift */,
+				328FE1C02C41485EFFC3D6D5 /* Frameworks */,
 				B669CC281F0F9E3B00B80B93 /* MarvelBrowser */,
 				B669CC381F0F9E3B00B80B93 /* MarvelBrowserTests */,
-				B669CC271F0F9E3B00B80B93 /* Products */,
 				FCF048BF880D39050057156D /* Pods */,
-				328FE1C02C41485EFFC3D6D5 /* Frameworks */,
+				B669CC271F0F9E3B00B80B93 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +222,7 @@
 				B6C0DFBF1F122C6F00647411 /* LoadingMoreView.swift */,
 				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
 				B6A6B7E41F126050009267EB /* String+MD5Hash.swift */,
+				B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */,
 				B6A6B7E91F126786009267EB /* MarvelRequestFactory.swift */,
 			);
 			name = Common;
@@ -515,7 +521,9 @@
 				B6A6B7E51F126050009267EB /* String+MD5Hash.swift in Sources */,
 				B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */,
 				B669CC2A1F0F9E3B00B80B93 /* AppDelegate.swift in Sources */,
+				B6A6B7F41F1270B1009267EB /* Config.swift in Sources */,
 				B6F38D0B1F10F6B2000A5BA8 /* MarvelCharactersListView.swift in Sources */,
+				B6A6B7EF1F126F8C009267EB /* Data+ToJSON.swift in Sources */,
 				B6F38CE71F10D161000A5BA8 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
