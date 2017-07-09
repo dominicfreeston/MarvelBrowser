@@ -1,13 +1,17 @@
 import UIKit
 import PureLayout
+import RxSwift
 
 class MarvelCharacterListViewController: UIViewController {
-    let listView = MarvelCharacterListView()
+    private let listView = MarvelCharacterListView()
+    private let useCase: MarvelCharactersUseCase
+    private let disposeBag = DisposeBag()
 
-    init() {
+    init(useCase: MarvelCharactersUseCase = FakeMarvelCharactersUseCase()) {
+        self.useCase = useCase
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -20,18 +24,10 @@ class MarvelCharacterListViewController: UIViewController {
         view.addSubview(listView)
         listView.autoPinEdgesToSuperviewEdges()
 
-        loadCharacters()
-    }
-
-    func loadCharacters() {
-        guard let path = Bundle.main.path(forResource: "charactersResponse", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            let json = try? JSONSerialization.jsonObject(with: data, options: []),
-            let jsonDict = json as? [String: Any],
-            let response = try? CharactersResponse(json: jsonDict) else {
-                return
-        }
-
-        listView.update(with: response.characters)
+        useCase
+            .characters()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: listView.update)
+            .addDisposableTo(disposeBag)
     }
 }
