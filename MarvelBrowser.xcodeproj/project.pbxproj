@@ -171,13 +171,15 @@
 		B669CC281F0F9E3B00B80B93 /* MarvelBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				B6C0DFC91F12589400647411 /* Bridging-Header.h */,
 				B669CC301F0F9E3B00B80B93 /* Info.plist */,
 				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
-				B6F38CF81F10D796000A5BA8 /* Character */,
-				B6F38CEE1F10D625000A5BA8 /* Common */,
-				B6F38CF91F10D7A0000A5BA8 /* Image */,
 				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
-				B6C0DFC91F12589400647411 /* Bridging-Header.h */,
+				B6F38CEE1F10D625000A5BA8 /* Common */,
+				B6A6B7FE1F128993009267EB /* Helpers */,
+				B6F38CF91F10D7A0000A5BA8 /* Image */,
+				B6A6B7FD1F128931009267EB /* MarvelCharacters/Model */,
+				B6A6B7FC1F1288EF009267EB /* MarvelCharacters/UI */,
 			);
 			path = MarvelBrowser;
 			sourceTree = "<group>";
@@ -186,10 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				B669CC391F0F9E3B00B80B93 /* Info.plist */,
-				B6F38CFA1F10D7BF000A5BA8 /* Character */,
 				B6A6B7E61F126097009267EB /* Common */,
 				B6F38CEF1F10D660000A5BA8 /* Helpers */,
 				B6F38CFB1F10D7CA000A5BA8 /* Image */,
+				B6F38CFA1F10D7BF000A5BA8 /* MarvelCharacters */,
+				B6A6B7FF1F128AF5009267EB /* MarvelCharacters/SnapshotTests */,
 				B6BC4AA91F105013000AD03E /* Test Data */,
 			);
 			path = MarvelBrowserTests;
@@ -198,10 +201,55 @@
 		B6A6B7E61F126097009267EB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B6A6B7E71F1260B1009267EB /* StringMD5Tests.swift */,
 				B6A6B7EB1F126A24009267EB /* MarvelRequestFactoryTests.swift */,
+				B6A6B7E71F1260B1009267EB /* StringMD5Tests.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		B6A6B7FC1F1288EF009267EB /* MarvelCharacters/UI */ = {
+			isa = PBXGroup;
+			children = (
+				B6F38D041F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift */,
+				B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */,
+				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
+				B6F38D0E1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift */,
+				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
+			);
+			name = MarvelCharacters/UI;
+			sourceTree = "<group>";
+		};
+		B6A6B7FD1F128931009267EB /* MarvelCharacters/Model */ = {
+			isa = PBXGroup;
+			children = (
+				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
+				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
+				B6C0DFC11F123DAB00647411 /* MarvelCharactersList.swift */,
+				B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */,
+				B6C0DFBB1F12293500647411 /* MarvelCharactersUseCase.swift */,
+			);
+			name = MarvelCharacters/Model;
+			sourceTree = "<group>";
+		};
+		B6A6B7FE1F128993009267EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */,
+				B6A6B7E41F126050009267EB /* String+MD5Hash.swift */,
+				B6F38D061F10EED6000A5BA8 /* UITableView+DequeueAndRegister.swift */,
+				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
+				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		B6A6B7FF1F128AF5009267EB /* MarvelCharacters/SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				B6F38D0C1F11477A000A5BA8 /* MarvelCharactersListViewSnapshotTests.swift */,
+				B6F38D001F10D96D000A5BA8 /* MarvelCharacterViewSnapshotTests.swift */,
+			);
+			name = MarvelCharacters/SnapshotTests;
 			sourceTree = "<group>";
 		};
 		B6BC4AA91F105013000AD03E /* Test Data */ = {
@@ -219,12 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
-				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
-				B6F38D061F10EED6000A5BA8 /* UITableView+DequeueAndRegister.swift */,
 				B6C0DFBF1F122C6F00647411 /* LoadingMoreView.swift */,
-				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
-				B6A6B7E41F126050009267EB /* String+MD5Hash.swift */,
-				B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */,
 				B6A6B7E91F126786009267EB /* MarvelRequestFactory.swift */,
 			);
 			name = Common;
@@ -234,27 +277,10 @@
 			isa = PBXGroup;
 			children = (
 				B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */,
-				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadExtension.swift */,
 				B6F38D021F10ED52000A5BA8 /* RecordSnapshots.swift */,
+				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadExtension.swift */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		B6F38CF81F10D796000A5BA8 /* Character */ = {
-			isa = PBXGroup;
-			children = (
-				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
-				B6F38D041F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift */,
-				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
-				B6C0DFC11F123DAB00647411 /* MarvelCharactersList.swift */,
-				B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */,
-				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
-				B6F38D0E1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift */,
-				B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */,
-				B6C0DFBB1F12293500647411 /* MarvelCharactersUseCase.swift */,
-				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
-			);
-			name = Character;
 			sourceTree = "<group>";
 		};
 		B6F38CF91F10D7A0000A5BA8 /* Image */ = {
@@ -267,17 +293,15 @@
 			name = Image;
 			sourceTree = "<group>";
 		};
-		B6F38CFA1F10D7BF000A5BA8 /* Character */ = {
+		B6F38CFA1F10D7BF000A5BA8 /* MarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
 				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
 				B6F38D081F10F221000A5BA8 /* MarvelCharactersAdapterTests.swift */,
-				B6F38D0C1F11477A000A5BA8 /* MarvelCharactersListViewSnapshotTests.swift */,
 				B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */,
 				B6C0DFC71F1246A800647411 /* MarvelCharactersUseCaseTests.swift */,
-				B6F38D001F10D96D000A5BA8 /* MarvelCharacterViewSnapshotTests.swift */,
 			);
-			name = Character;
+			name = MarvelCharacters;
 			sourceTree = "<group>";
 		};
 		B6F38CFB1F10D7CA000A5BA8 /* Image */ = {
