@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 
 protocol MarvelCharactersDataSource {
-    func characters(atOffset: Int) -> Observable<CharactersResponse>
+    func characters(atOffset: Int) -> Observable<MarvelCharactersResponse>
 }
 
 class MarvelAPICharactersDataSource: MarvelCharactersDataSource {
@@ -15,32 +15,32 @@ class MarvelAPICharactersDataSource: MarvelCharactersDataSource {
         self.session = session
     }
 
-    func characters(atOffset offset: Int) -> Observable<CharactersResponse> {
+    func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
         let request = requestFactory.charactersRequest(offset: offset)
         return session.rx
             .data(request: request)
             .map(toJSON)
-            .map(CharactersResponse.init)
+            .map(MarvelCharactersResponse.init)
     }
 }
 
 class FakeMarvelCharactersDataSource: MarvelCharactersDataSource {
     let scheduler = ConcurrentDispatchQueueScheduler(qos: .background)
 
-    func characters(atOffset: Int) -> Observable<CharactersResponse> {
+    func characters(atOffset: Int) -> Observable<MarvelCharactersResponse> {
         return Observable.just(fakeData()).subscribeOn(scheduler).delay(0.1, scheduler: scheduler)
     }
 
-    func fakeData() -> CharactersResponse {
+    func fakeData() -> MarvelCharactersResponse {
         guard let path = Bundle.main.path(forResource: "charactersResponse", ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let json = try? JSONSerialization.jsonObject(with: data, options: []),
             let jsonDict = json as? [String: Any],
-            let response = try? CharactersResponse(json: jsonDict) else {
+            let response = try? MarvelCharactersResponse(json: jsonDict) else {
                 preconditionFailure("No data available")
         }
 
-        let limitedResponse = CharactersResponse(
+        let limitedResponse = MarvelCharactersResponse(
             total: 80,
             characters: response.characters
         )

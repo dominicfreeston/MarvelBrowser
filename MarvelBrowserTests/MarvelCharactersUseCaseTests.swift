@@ -5,19 +5,19 @@ import RxSwift
 
 class MarvelCharactersUseCaseTests: XCTestCase {
 
-    var response: CharactersResponse {
-        return try! CharactersResponse(json: loadJSON(named: "charactersResponse"))
+    var response: MarvelCharactersResponse {
+        return try! MarvelCharactersResponse(json: loadJSON(named: "charactersResponse"))
     }
 
     class FakeDataSource: MarvelCharactersDataSource {
-        let response: CharactersResponse
+        let response: MarvelCharactersResponse
         var numberOfReponses = 0
 
-        init(response: CharactersResponse) {
+        init(response: MarvelCharactersResponse) {
             self.response = response
         }
 
-        func characters(atOffset: Int) -> Observable<CharactersResponse> {
+        func characters(atOffset: Int) -> Observable<MarvelCharactersResponse> {
             return Observable.just(response).do(onNext: { _ in self.numberOfReponses += 1 })
         }
     }

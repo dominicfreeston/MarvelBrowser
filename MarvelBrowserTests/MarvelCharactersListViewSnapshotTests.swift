@@ -6,7 +6,7 @@ import PureLayout
 class MarvelCharactersListViewSnapshotTests: FBSnapshotTestCase {
 
     var characters: MarvelCharactersList {
-        let response = try! CharactersResponse(json: loadJSON(named: "charactersResponse"))
+        let response = try! MarvelCharactersResponse(json: loadJSON(named: "charactersResponse"))
         return MarvelCharactersList(characters: response.characters)
     }
 

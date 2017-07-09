@@ -1,12 +1,12 @@
 import Foundation
 import Unbox
 
-struct CharactersResponse {
+struct MarvelCharactersResponse {
     let total: Int
     let characters: [MarvelCharacter]
 }
 
-extension CharactersResponse: Unboxable {
+extension MarvelCharactersResponse: Unboxable {
     init(unboxer: Unboxer) throws {
         let data: [String: Any] = try unboxer.unbox(key: "data")
         let dataUnboxer = Unboxer(dictionary: data)

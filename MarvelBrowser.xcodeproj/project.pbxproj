@@ -26,8 +26,8 @@
 		B6A6B7EF1F126F8C009267EB /* Data+ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */; };
 		B6A6B7F41F1270B1009267EB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7F31F1270B1009267EB /* Config.swift */; };
 		B6A6B7F91F127FBC009267EB /* MarvelCharactersListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */; };
-		B6BC4AA41F104DED000AD03E /* CharactersResponseJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */; };
-		B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */; };
+		B6BC4AA41F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */; };
+		B6BC4AA61F104E20000AD03E /* MarvelCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */; };
 		B6BC4AA81F104EBC000AD03E /* charactersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BC4AA71F104EBC000AD03E /* charactersResponse.json */; };
 		B6BC4AAB1F105067000AD03E /* Unboxer+JSONInitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */; };
 		B6C0DFBA1F12251C00647411 /* UnitTestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */; };
@@ -87,8 +87,8 @@
 		B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+ToJSON.swift"; sourceTree = "<group>"; };
 		B6A6B7F31F1270B1009267EB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharactersListItem.swift; sourceTree = "<group>"; };
-		B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponseJSONParsingTests.swift; sourceTree = "<group>"; };
-		B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
+		B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharactersResponseJSONParsingTests.swift; sourceTree = "<group>"; };
+		B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharactersResponse.swift; sourceTree = "<group>"; };
 		B6BC4AA71F104EBC000AD03E /* charactersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charactersResponse.json; sourceTree = "<group>"; };
 		B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Unboxer+JSONInitExtension.swift"; sourceTree = "<group>"; };
 		B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestEnvironment.swift; sourceTree = "<group>"; };
@@ -243,7 +243,6 @@
 		B6F38CF81F10D796000A5BA8 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				B6BC4AA51F104E20000AD03E /* CharactersResponse.swift */,
 				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
 				B6F38D041F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift */,
 				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
@@ -251,6 +250,7 @@
 				B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */,
 				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
 				B6F38D0E1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift */,
+				B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */,
 				B6C0DFBB1F12293500647411 /* MarvelCharactersUseCase.swift */,
 				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
 			);
@@ -270,12 +270,12 @@
 		B6F38CFA1F10D7BF000A5BA8 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				B6BC4AA31F104DED000AD03E /* CharactersResponseJSONParsingTests.swift */,
 				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
 				B6F38D081F10F221000A5BA8 /* MarvelCharactersAdapterTests.swift */,
-				B6F38D001F10D96D000A5BA8 /* MarvelCharacterViewSnapshotTests.swift */,
 				B6F38D0C1F11477A000A5BA8 /* MarvelCharactersListViewSnapshotTests.swift */,
+				B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */,
 				B6C0DFC71F1246A800647411 /* MarvelCharactersUseCaseTests.swift */,
+				B6F38D001F10D96D000A5BA8 /* MarvelCharacterViewSnapshotTests.swift */,
 			);
 			name = Character;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 				B6A6B7F91F127FBC009267EB /* MarvelCharactersListItem.swift in Sources */,
 				B6BC4AAB1F105067000AD03E /* Unboxer+JSONInitExtension.swift in Sources */,
 				B6A6B7E51F126050009267EB /* String+MD5Hash.swift in Sources */,
-				B6BC4AA61F104E20000AD03E /* CharactersResponse.swift in Sources */,
+				B6BC4AA61F104E20000AD03E /* MarvelCharactersResponse.swift in Sources */,
 				B669CC2A1F0F9E3B00B80B93 /* AppDelegate.swift in Sources */,
 				B6A6B7F41F1270B1009267EB /* Config.swift in Sources */,
 				B6F38D0B1F10F6B2000A5BA8 /* MarvelCharactersListView.swift in Sources */,
@@ -544,7 +544,7 @@
 				B6C0DFC81F1246A800647411 /* MarvelCharactersUseCaseTests.swift in Sources */,
 				B6F38D031F10ED52000A5BA8 /* RecordSnapshots.swift in Sources */,
 				B669CC511F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift in Sources */,
-				B6BC4AA41F104DED000AD03E /* CharactersResponseJSONParsingTests.swift in Sources */,
+				B6BC4AA41F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift in Sources */,
 				B6F38CE91F10D223000A5BA8 /* URLImageViewSnapshotTests.swift in Sources */,
 				B6F38CE51F10D12A000A5BA8 /* MockImageService.swift in Sources */,
 				B6A6B7EC1F126A24009267EB /* MarvelRequestFactoryTests.swift in Sources */,

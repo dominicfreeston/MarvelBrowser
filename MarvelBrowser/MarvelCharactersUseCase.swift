@@ -37,7 +37,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
             .addDisposableTo(disposeBag)
     }
 
-    private func updateCharactersList(response: CharactersResponse) {
+    private func updateCharactersList(response: MarvelCharactersResponse) {
         let currentCharacters = charactersCache.value.characters
         let allCharacters = currentCharacters + response.characters
         let moreAvailable = response.total > allCharacters.count
