@@ -9,7 +9,7 @@ extension Data {
         let json = try JSONSerialization.jsonObject(with: self, options: [])
 
         guard let jsonDictionary = json as? [String: Any] else {
-            throw HTTPImageService.ImageError.invalidData
+            throw DataConversionError.invalidJSON
         }
 
         return jsonDictionary

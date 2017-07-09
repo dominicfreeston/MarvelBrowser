@@ -11,12 +11,7 @@ class MarvelCharacterListViewController: UIViewController {
 
     init(useCase: MarvelCharactersUseCaseType = MARVEL_USE_CASE) {
         self.useCase = useCase
-
         super.init(nibName: nil, bundle: nil)
-
-        listView.adapter.loadMoreAction = { [useCase] in
-            useCase.loadMoreCharacters()
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -30,6 +25,8 @@ class MarvelCharacterListViewController: UIViewController {
 
         view.addSubview(listView)
         listView.autoPinEdgesToSuperviewEdges()
+
+        listView.adapter.loadMoreAction = useCase.loadMoreCharacters
 
         useCase
             .characters()
