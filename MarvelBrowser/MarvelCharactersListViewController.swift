@@ -4,10 +4,10 @@ import RxSwift
 
 class MarvelCharacterListViewController: UIViewController {
     private let listView = MarvelCharacterListView()
-    private let useCase: MarvelCharactersUseCase
+    private let useCase: MarvelCharactersUseCaseType
     private let disposeBag = DisposeBag()
 
-    init(useCase: MarvelCharactersUseCase = FakeMarvelCharactersUseCase()) {
+    init(useCase: MarvelCharactersUseCaseType = FakeMarvelCharactersUseCase()) {
         self.useCase = useCase
 
         super.init(nibName: nil, bundle: nil)
