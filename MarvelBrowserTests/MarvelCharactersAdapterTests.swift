@@ -45,4 +45,14 @@ class MarvelCharactersAdapterTests: XCTestCase {
 
         XCTAssertTrue(called)
     }
+
+    func testItReturnsASecondSectionIfMoreIsAvailable() {
+        adapter.charactersList = MarvelCharactersList(characters: [], moreAvailable: true)
+        XCTAssertEqual(adapter.numberOfSections(in: tableView), 2)
+    }
+
+    func testItDoesntReturnsASecondSectionIfMoreIsNotAvailable() {
+        adapter.charactersList = MarvelCharactersList(characters: [], moreAvailable: false)
+        XCTAssertEqual(adapter.numberOfSections(in: tableView), 1)
+    }
 }

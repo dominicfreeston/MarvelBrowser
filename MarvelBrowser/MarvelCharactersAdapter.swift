@@ -17,7 +17,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return charactersList.moreAvailable ? 2 : 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
