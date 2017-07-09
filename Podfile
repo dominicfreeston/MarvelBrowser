@@ -7,6 +7,7 @@ target 'MarvelBrowser' do
   pod 'RxCocoa', '3.5.0'
   pod 'PureLayout', '3.0.2'
   pod 'Unbox', '2.5.0'
+  pod 'Dwifft', '0.6.2'
 
   target 'MarvelBrowserTests' do
     inherit! :search_paths
