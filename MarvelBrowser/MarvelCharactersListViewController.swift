@@ -9,7 +9,12 @@ class MarvelCharacterListViewController: UIViewController {
 
     init(useCase: MarvelCharactersUseCase = FakeMarvelCharactersUseCase()) {
         self.useCase = useCase
+
         super.init(nibName: nil, bundle: nil)
+
+        listView.adapter.loadMoreAction = { [useCase] in
+            useCase.loadMoreCharacters()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
