@@ -8,12 +8,19 @@ protocol MarvelCharactersUseCaseType {
 
 class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
     private let apiDataSource: MarvelCharactersDataSource
+    private let storageDataSource: MarvelCharactersDataSource
     private let charactersCache = Variable(MarvelCharactersList.empty)
-    private var currentlyLoading = false
+    private let updateDataScheduler: ImmediateSchedulerType
     private let disposeBag = DisposeBag()
 
-    init(apiDataSource: MarvelCharactersDataSource) {
+    private var currentlyLoading = false
+
+    init(apiDataSource: MarvelCharactersDataSource,
+         storageDataSource: MarvelCharactersDataSource = FakeMarvelCharactersDataSource(),
+         updateDataScheduler: ImmediateSchedulerType = ConcurrentDispatchQueueScheduler(qos: .background)) {
         self.apiDataSource = apiDataSource
+        self.storageDataSource = storageDataSource
+        self.updateDataScheduler = updateDataScheduler
     }
 
     func characters() -> Observable<MarvelCharactersList> {
@@ -29,8 +36,13 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
         let stopLoading = { self.currentlyLoading = false }
 
         let count = charactersCache.value.characters.count
-        apiDataSource
+
+        storageDataSource
             .characters(atOffset: count)
+            .ifEmpty(switchTo:
+                apiDataSource.characters(atOffset: count)
+            )
+            .observeOn(updateDataScheduler)
             .subscribe(
                 onNext: updateCharactersList,
                 onDisposed: stopLoading)

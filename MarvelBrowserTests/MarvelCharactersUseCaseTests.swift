@@ -9,7 +9,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         return try! MarvelCharactersResponse(json: loadJSON(named: "charactersResponse"))
     }
 
-    class FakeDataSource: MarvelCharactersDataSource {
+    class FakeAPIDataSource: MarvelCharactersDataSource {
         let response: MarvelCharactersResponse
         var numberOfReponses = 0
 
@@ -17,12 +17,25 @@ class MarvelCharactersUseCaseTests: XCTestCase {
             self.response = response
         }
 
-        func characters(atOffset: Int) -> Observable<MarvelCharactersResponse> {
-            return Observable.just(response).do(onNext: { _ in self.numberOfReponses += 1 })
+        func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
+            return Observable.just(response.with(offset: offset)).do(onNext: { _ in self.numberOfReponses += 1 })
         }
     }
 
-    var dataSource: FakeDataSource!
+    class FakeStorageDataSource: MarvelCharactersDataSource {
+        var response: MarvelCharactersResponse?
+        var numberOfReponses = 0
+
+        func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
+            if let response = response {
+                return Observable.just(response.with(offset: offset)).do(onNext: { _ in self.numberOfReponses += 1 })
+            }
+            return Observable.empty()
+        }
+    }
+
+    var apiDataSource: FakeAPIDataSource!
+    var storageDataSource: FakeStorageDataSource!
     var useCase: MarvelCharactersUseCase!
     var lastValue: MarvelCharactersList?
     var disposeBag: DisposeBag!
@@ -30,8 +43,14 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        dataSource = FakeDataSource(response: response)
-        useCase = MarvelCharactersUseCase(apiDataSource: dataSource)
+        apiDataSource = FakeAPIDataSource(response: response)
+        storageDataSource = FakeStorageDataSource()
+
+        useCase = MarvelCharactersUseCase(
+            apiDataSource: apiDataSource,
+            storageDataSource: storageDataSource,
+            updateDataScheduler: CurrentThreadScheduler.instance
+        )
         disposeBag = DisposeBag()
 
         useCase.characters().subscribe(onNext: { [weak self] in
@@ -39,8 +58,9 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         }).addDisposableTo(disposeBag)
     }
 
-    func testUseCaseDoesntImmediatelyUseTheAPIDataSource() {
-        XCTAssertEqual(dataSource.numberOfReponses, 0)
+    func testUseCaseDoesntImmediatelyFetchData() {
+        XCTAssertEqual(apiDataSource.numberOfReponses, 0)
+        XCTAssertEqual(storageDataSource.numberOfReponses, 0)
     }
 
     func testUseCaseImmediatelyReturnsAValueOnSubscription() {
@@ -51,7 +71,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     func testUseCaseFetchesDataFromAPIDataSourceOnLoadMore() {
         useCase.loadMoreCharacters()
 
-        XCTAssertEqual(dataSource.numberOfReponses, 1)
+        XCTAssertEqual(apiDataSource.numberOfReponses, 1)
         XCTAssertEqual(lastValue?.characters.count, 20)
         XCTAssertEqual(lastValue?.moreAvailable, true)
     }
@@ -61,7 +81,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
             useCase.loadMoreCharacters()
         }
 
-        XCTAssertEqual(dataSource.numberOfReponses, 3)
+        XCTAssertEqual(apiDataSource.numberOfReponses, 3)
         XCTAssertEqual(lastValue?.characters.count, 60)
         XCTAssertEqual(lastValue?.moreAvailable, true)
     }
@@ -73,5 +93,35 @@ class MarvelCharactersUseCaseTests: XCTestCase {
 
         XCTAssertEqual(lastValue?.moreAvailable, false)
     }
-    
+
+    func testUseCaseFetchesDataFromStorageFirst() {
+        storageDataSource.response = response
+
+        useCase.loadMoreCharacters()
+
+        XCTAssertEqual(apiDataSource.numberOfReponses, 0)
+        XCTAssertEqual(storageDataSource.numberOfReponses, 1)
+        XCTAssertEqual(lastValue?.characters.count, 20)
+    }
+
+    func testUseCaseFallsBackOnTheAPIAndCombinesTheData() {
+        storageDataSource.response = response
+        useCase.loadMoreCharacters()
+        storageDataSource.response = nil
+        useCase.loadMoreCharacters()
+
+        XCTAssertEqual(apiDataSource.numberOfReponses, 1)
+        XCTAssertEqual(storageDataSource.numberOfReponses, 1)
+        XCTAssertEqual(lastValue?.characters.count, 40)
+    }
+}
+
+private extension MarvelCharactersResponse {
+    func with(offset: Int) -> MarvelCharactersResponse {
+        return MarvelCharactersResponse(
+            offset: offset,
+            total: total,
+            characters: characters
+        )
+    }
 }

@@ -28,7 +28,10 @@ class FakeMarvelCharactersDataSource: MarvelCharactersDataSource {
     let scheduler = ConcurrentDispatchQueueScheduler(qos: .background)
 
     func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
-        return Observable.just(fakeData(offset: offset)).subscribeOn(scheduler).delay(0.1, scheduler: scheduler)
+        if offset == 0 {
+            return Observable.just(fakeData(offset: offset)).subscribeOn(scheduler).delay(0.1, scheduler: scheduler)
+        }
+        return Observable.empty()
     }
 
     func fakeData(offset: Int) -> MarvelCharactersResponse {
@@ -40,12 +43,6 @@ class FakeMarvelCharactersDataSource: MarvelCharactersDataSource {
                 preconditionFailure("No data available")
         }
 
-        let limitedResponse = MarvelCharactersResponse(
-            offset: offset,
-            total: 80,
-            characters: response.characters
-        )
-
-        return limitedResponse
+        return response
     }
 }
