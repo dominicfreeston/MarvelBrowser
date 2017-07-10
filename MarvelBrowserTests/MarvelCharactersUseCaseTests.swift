@@ -10,14 +10,20 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     }
 
     class FakeAPIDataSource: MarvelCharactersDataSource {
+        struct FakeError: Error {}
+
         let response: MarvelCharactersResponse
         var numberOfReponses = 0
+        var returnError = false
 
         init(response: MarvelCharactersResponse) {
             self.response = response
         }
 
         func characters(atOffset offset: Int) -> Observable<MarvelCharactersResponse> {
+            if returnError {
+                return Observable.error(FakeError())
+            }
             return Observable.just(response.with(offset: offset)).do(onNext: { _ in self.numberOfReponses += 1 })
         }
     }
@@ -70,6 +76,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
     func testUseCaseImmediatelyReturnsAValueOnSubscription() {
         XCTAssertEqual(lastValue?.characters.count, 0)
         XCTAssertEqual(lastValue?.moreAvailable, true)
+        XCTAssertEqual(lastValue?.errorOccured, false)
     }
 
     func testUseCaseFetchesDataFromAPIDataSourceOnLoadMore() {
@@ -78,6 +85,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         XCTAssertEqual(apiDataSource.numberOfReponses, 1)
         XCTAssertEqual(lastValue?.characters.count, 20)
         XCTAssertEqual(lastValue?.moreAvailable, true)
+        XCTAssertEqual(lastValue?.errorOccured, false)
     }
 
     func testUseCaseAppendsNewDataToExistingData() {
@@ -88,6 +96,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         XCTAssertEqual(apiDataSource.numberOfReponses, 3)
         XCTAssertEqual(lastValue?.characters.count, 60)
         XCTAssertEqual(lastValue?.moreAvailable, true)
+        XCTAssertEqual(lastValue?.errorOccured, false)
     }
 
     func testUseCaseSetMoreAvailableFalseWhenTotalReached() {
@@ -96,6 +105,7 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         }
 
         XCTAssertEqual(lastValue?.moreAvailable, false)
+        XCTAssertEqual(lastValue?.errorOccured, false)
     }
 
     func testUseCaseFetchesDataFromStorageFirst() {
@@ -126,6 +136,16 @@ class MarvelCharactersUseCaseTests: XCTestCase {
         useCase.loadMoreCharacters()
         XCTAssertNotNil(storageDataSource.responses[20])
         XCTAssertEqual(storageDataSource.responses.count, 2)
+    }
+
+    func testUseCaseMarksErrorFlagWhenReceivingAnError() {
+        apiDataSource.returnError = true
+
+        useCase.loadMoreCharacters()
+
+        XCTAssertEqual(lastValue?.characters.count, 0)
+        XCTAssertEqual(lastValue?.moreAvailable, true)
+        XCTAssertEqual(lastValue?.errorOccured, true)
     }
 }
 

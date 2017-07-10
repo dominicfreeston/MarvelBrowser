@@ -45,6 +45,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
             .observeOn(updateDataScheduler)
             .subscribe(
                 onNext: updateCharactersList,
+                onError: updateWithError,
                 onDisposed: stopLoading)
             .addDisposableTo(disposeBag)
     }
@@ -60,6 +61,16 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
             characters: allCharacters,
             moreAvailable: moreAvailable,
             errorOccured: false
+        )
+    }
+
+    private func updateWithError(error: Error) {
+        let currentList = charactersCache.value
+
+        charactersCache.value = MarvelCharactersList(
+            characters: currentList.characters,
+            moreAvailable: currentList.moreAvailable,
+            errorOccured: true
         )
     }
 }
