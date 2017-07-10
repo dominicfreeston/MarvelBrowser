@@ -2,7 +2,10 @@ import UIKit
 import PureLayout
 import RxSwift
 
-let MARVEL_USE_CASE = MarvelCharactersUseCase(apiDataSource: MarvelAPICharactersDataSource())
+let MARVEL_USE_CASE = MarvelCharactersUseCase(
+    apiDataSource: MarvelAPICharactersDataSource(),
+    storageDataSource: MarvelCharactersDiskDataSource()
+)
 
 class MarvelCharacterListViewController: UIViewController {
     private let listView = MarvelCharacterListView()

@@ -16,7 +16,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
     private var currentlyLoading = false
 
     init(apiDataSource: MarvelCharactersDataSource,
-         storageDataSource: MarvelCharactersCachingDataSource = FakeMarvelCharactersDataSource(),
+         storageDataSource: MarvelCharactersCachingDataSource,
          updateDataScheduler: ImmediateSchedulerType = ConcurrentDispatchQueueScheduler(qos: .background)) {
         self.apiDataSource = apiDataSource
         self.storageDataSource = storageDataSource
