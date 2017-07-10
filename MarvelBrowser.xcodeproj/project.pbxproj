@@ -187,15 +187,12 @@
 		B669CC281F0F9E3B00B80B93 /* MarvelBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				B6C0DFC91F12589400647411 /* Bridging-Header.h */,
-				B669CC301F0F9E3B00B80B93 /* Info.plist */,
-				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
-				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 				B6F38CEE1F10D625000A5BA8 /* Common */,
 				B6A6B7FE1F128993009267EB /* Helpers */,
 				B6F38CF91F10D7A0000A5BA8 /* Image */,
 				B6A6B7FD1F128931009267EB /* MarvelCharacters/Model */,
 				B6A6B7FC1F1288EF009267EB /* MarvelCharacters/UI */,
+				B6E0F4AF1F142382008771D2 /* Resources */,
 			);
 			path = MarvelBrowser;
 			sourceTree = "<group>";
@@ -282,6 +279,17 @@
 				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
 			);
 			name = "Test Data";
+			sourceTree = "<group>";
+		};
+		B6E0F4AF1F142382008771D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6C0DFC91F12589400647411 /* Bridging-Header.h */,
+				B669CC301F0F9E3B00B80B93 /* Info.plist */,
+				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
+				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B6F38CEE1F10D625000A5BA8 /* Common */ = {
