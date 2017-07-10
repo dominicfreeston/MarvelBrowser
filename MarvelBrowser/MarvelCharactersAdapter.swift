@@ -58,6 +58,10 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
 
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return diffCalculator.value(atIndexPath: indexPath) == .error
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if diffCalculator.value(atIndexPath: indexPath) == .error {
             loadMoreAction?()
