@@ -8,12 +8,14 @@ let MARVEL_USE_CASE = MarvelCharactersUseCase(
 )
 
 class MarvelCharacterListViewController: UIViewController {
-    private let listView = MarvelCharacterListView()
+    private let listView: MarvelCharacterListView
     private let useCase: MarvelCharactersUseCaseType
     private let disposeBag = DisposeBag()
 
-    init(useCase: MarvelCharactersUseCaseType = MARVEL_USE_CASE) {
+    init(useCase: MarvelCharactersUseCaseType = MARVEL_USE_CASE,
+        listView: MarvelCharacterListView = MarvelCharacterListView()) {
         self.useCase = useCase
+        self.listView = listView
         super.init(nibName: nil, bundle: nil)
     }
 
