@@ -20,7 +20,8 @@ class LoadingMoreView: UIView {
         autoSetDimension(.height, toSize: 64)
         activityIndicator.autoCenterInSuperview()
 
-        activityIndicator.color = UIColor(red: 0.88, green: 0.21, blue: 0.21, alpha: 1)
+        activityIndicator.color = .marvelRed
+        backgroundColor = .appBackgroundColor
     }
 
     func start() {

@@ -43,7 +43,7 @@ class MarvelCharacterView: UIView {
         nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
         descriptionLabel.font = UIFont.systemFont(ofSize: 14)
 
-        backgroundColor = .white
+        backgroundColor = .appBackgroundColor
 
         setupLayout()
     }
