@@ -58,7 +58,8 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
 
         charactersCache.value = MarvelCharactersList(
             characters: allCharacters,
-            moreAvailable: moreAvailable
+            moreAvailable: moreAvailable,
+            errorOccured: false
         )
     }
 }
