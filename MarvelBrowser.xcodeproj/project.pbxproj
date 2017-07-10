@@ -372,8 +372,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B669CC3C1F0F9E3B00B80B93 /* Build configuration list for PBXNativeTarget "MarvelBrowser" */;
 			buildPhases = (
-				B6E0F4B41F1429B9008771D2 /* ShellScript */,
 				F1B91F263ABBE424CF7467B5 /* [CP] Check Pods Manifest.lock */,
+				B6E0F4B41F1429B9008771D2 /* SwiftGen Script */,
 				B669CC221F0F9E3B00B80B93 /* Sources */,
 				B669CC231F0F9E3B00B80B93 /* Frameworks */,
 				B669CC241F0F9E3B00B80B93 /* Resources */,
@@ -507,13 +507,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarvelBrowser/Pods-MarvelBrowser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B6E0F4B41F1429B9008771D2 /* ShellScript */ = {
+		B6E0F4B41F1429B9008771D2 /* SwiftGen Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "SwiftGen Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
