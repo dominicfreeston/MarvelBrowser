@@ -6,7 +6,7 @@ protocol MarvelCharactersCachingDataSource: MarvelCharactersDataSource {
 }
 
 class MarvelCharactersDiskDataSource: MarvelCharactersCachingDataSource {
-    let documentsPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
+    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     static let folderName = "responses"
 
     init() {
