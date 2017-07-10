@@ -49,9 +49,6 @@ class MarvelCharacterView: UIView {
     }
 
     private func setupLayout() {
-        let spacing: CGFloat = 8
-        let imageSize: CGFloat = 64
-
         let verticalStackView = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel])
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .equalCentering
@@ -61,13 +58,12 @@ class MarvelCharacterView: UIView {
 
         let horizontalStackView = UIStackView(arrangedSubviews: [imageViewWrapper, verticalStackView])
         horizontalStackView.axis = .horizontal
-        horizontalStackView.spacing = spacing
+        horizontalStackView.spacing = .interItemSpacing
 
         addSubview(horizontalStackView)
 
-        horizontalStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: spacing, left: spacing, bottom:
-            spacing, right: spacing))
-        imageView.autoSetDimensions(to: CGSize(width: imageSize, height: imageSize))
+        horizontalStackView.autoPinEdgesToSuperviewMargins()
+        imageView.autoSetDimensions(to: CGSize(width: .thumbnailSize, height: .thumbnailSize))
 
         imageView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         imageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0, relation: .greaterThanOrEqual)

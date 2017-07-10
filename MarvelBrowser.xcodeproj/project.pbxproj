@@ -32,6 +32,7 @@
 		B6A6B80D1F13F5E0009267EB /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B80C1F13F5E0009267EB /* UIColor+AppColors.swift */; };
 		B6A6B80F1F13F6C2009267EB /* LoadingErrorViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B80E1F13F6C2009267EB /* LoadingErrorViewSnapshotTests.swift */; };
 		B6A6B8111F13FC7E009267EB /* MarvelCharactersList+EasyInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B8101F13FC7E009267EB /* MarvelCharactersList+EasyInit.swift */; };
+		B6A6B8131F140935009267EB /* CGFloat+LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6B8121F140935009267EB /* CGFloat+LayoutConstants.swift */; };
 		B6BC4AA41F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */; };
 		B6BC4AA61F104E20000AD03E /* MarvelCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */; };
 		B6BC4AA81F104EBC000AD03E /* charactersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B6BC4AA71F104EBC000AD03E /* charactersResponse.json */; };
@@ -99,6 +100,7 @@
 		B6A6B80C1F13F5E0009267EB /* UIColor+AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		B6A6B80E1F13F6C2009267EB /* LoadingErrorViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingErrorViewSnapshotTests.swift; sourceTree = "<group>"; };
 		B6A6B8101F13FC7E009267EB /* MarvelCharactersList+EasyInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarvelCharactersList+EasyInit.swift"; sourceTree = "<group>"; };
+		B6A6B8121F140935009267EB /* CGFloat+LayoutConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+LayoutConstants.swift"; sourceTree = "<group>"; };
 		B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharactersResponseJSONParsingTests.swift; sourceTree = "<group>"; };
 		B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarvelCharactersResponse.swift; sourceTree = "<group>"; };
 		B6BC4AA71F104EBC000AD03E /* charactersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charactersResponse.json; sourceTree = "<group>"; };
@@ -248,12 +250,13 @@
 		B6A6B7FE1F128993009267EB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B6A6B8121F140935009267EB /* CGFloat+LayoutConstants.swift */,
 				B6A6B7EE1F126F8C009267EB /* Data+ToJSON.swift */,
 				B6A6B7E41F126050009267EB /* String+MD5Hash.swift */,
+				B6A6B80C1F13F5E0009267EB /* UIColor+AppColors.swift */,
 				B6F38D061F10EED6000A5BA8 /* UITableView+DequeueAndRegister.swift */,
 				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
 				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
-				B6A6B80C1F13F5E0009267EB /* UIColor+AppColors.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 			files = (
 				B6F38CED1F10D237000A5BA8 /* URLImageView.swift in Sources */,
 				B6A6B80D1F13F5E0009267EB /* UIColor+AppColors.swift in Sources */,
+				B6A6B8131F140935009267EB /* CGFloat+LayoutConstants.swift in Sources */,
 				B6C0DFC61F12456A00647411 /* MarvelCharactersDataSource.swift in Sources */,
 				B669CC471F103C1600B80B93 /* MarvelCharacter.swift in Sources */,
 				B669CC451F103BDD00B80B93 /* ImageAsset.swift in Sources */,

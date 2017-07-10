@@ -13,13 +13,12 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
 
     func setup(tableView: UITableView) {
         diffCalculator = TableViewDiffCalculator(tableView: tableView)
-        diffCalculator.insertionAnimation = .fade
 
         tableView.register(TableViewCell<MarvelCharacterView>.self)
         tableView.register(TableViewCell<LoadingMoreView>.self)
         tableView.register(TableViewCell<LoadingErrorView>.self)
 
-        tableView.estimatedRowHeight = 80
+        tableView.estimatedRowHeight = .rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .none
 

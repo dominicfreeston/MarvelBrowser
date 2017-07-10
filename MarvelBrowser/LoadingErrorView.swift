@@ -38,7 +38,7 @@ class LoadingErrorView: UIView {
             imageView, messageView, tryAgainButton
             ])
         stackView.axis = .horizontal
-        stackView.spacing = 10
+        stackView.spacing = .interItemSpacing
 
         addSubview(stackView)
 
