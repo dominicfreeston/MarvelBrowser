@@ -55,4 +55,16 @@ class MarvelCharactersAdapterTests: XCTestCase {
         adapter.charactersList = MarvelCharactersList(characters: [], moreAvailable: false)
         XCTAssertEqual(adapter.numberOfSections(in: tableView), 1)
     }
+
+    func testItReturnsALoadingMoreViewIfMoreIsAvailable() {
+        adapter.charactersList = MarvelCharactersList(characters: [], moreAvailable: true)
+        cell = adapter.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1))
+        XCTAssert(cell is TableViewCell<LoadingMoreView>)
+    }
+
+    func testItReturnsALoadingErrorViewIfAnErrorOccured() {
+        adapter.charactersList = MarvelCharactersList(characters: [], errorOccured: true)
+        cell = adapter.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1))
+        XCTAssert(cell is TableViewCell<LoadingErrorView>)
+    }
 }

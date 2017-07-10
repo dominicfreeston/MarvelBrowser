@@ -17,6 +17,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
 
         tableView.register(TableViewCell<MarvelCharacterView>.self)
         tableView.register(TableViewCell<LoadingMoreView>.self)
+        tableView.register(TableViewCell<LoadingErrorView>.self)
 
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -45,6 +46,9 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         case .loadMore:
             let cell: TableViewCell<LoadingMoreView> = tableView.dequeueReusableCell(for: indexPath)
             return cell
+        case .error:
+            let cell: TableViewCell<LoadingErrorView> = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         }
     }
 
@@ -60,7 +64,9 @@ private extension MarvelCharactersList {
     func asSectionedValues() -> SectionedValues<Int, CharactersListItem> {
         let chars = characters.map(CharactersListItem.character)
 
-        if moreAvailable {
+        if errorOccured {
+            return SectionedValues([(0, chars), (1, [.error])])
+        } else if moreAvailable {
             return SectionedValues([(0, chars), (1, [.loadMore])])
         } else {
             return SectionedValues([(0, chars)])
