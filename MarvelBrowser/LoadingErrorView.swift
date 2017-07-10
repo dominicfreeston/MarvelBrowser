@@ -26,6 +26,7 @@ class LoadingErrorView: UIView {
 
         tryAgainButton.setTitle("Try Again", for: .normal)
         tryAgainButton.tintColor = .marvelRed
+        tryAgainButton.isUserInteractionEnabled = false
 
         backgroundColor = .appBackgroundColor
 

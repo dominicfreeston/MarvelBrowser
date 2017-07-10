@@ -58,6 +58,12 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
             loadMoreAction?()
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if diffCalculator.value(atIndexPath: indexPath) == .error {
+            loadMoreAction?()
+        }
+    }
 }
 
 private extension MarvelCharactersList {
