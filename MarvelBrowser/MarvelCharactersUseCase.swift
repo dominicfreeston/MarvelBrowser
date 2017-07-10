@@ -32,7 +32,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
             return
         }
 
-        currentlyLoading = true
+        setLoading()
         let stopLoading = { self.currentlyLoading = false }
 
         let count = charactersCache.value.characters.count
@@ -71,6 +71,17 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
             characters: currentList.characters,
             moreAvailable: currentList.moreAvailable,
             errorOccured: true
+        )
+    }
+
+    private func setLoading() {
+        currentlyLoading = true
+
+        let currentList = charactersCache.value
+        charactersCache.value = MarvelCharactersList(
+            characters: currentList.characters,
+            moreAvailable: currentList.moreAvailable,
+            errorOccured: false
         )
     }
 }
