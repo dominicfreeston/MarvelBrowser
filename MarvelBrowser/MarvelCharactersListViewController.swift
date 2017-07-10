@@ -47,8 +47,8 @@ class MarvelCharacterListViewController: UIViewController {
     }
 
     private func setupViews() {
-        title = "All Characters"
-        attributionButton.setTitle("Data provided by Marvel. © 2017 MARVEL", for: .normal)
+        title = L10n.Allcharacters.title
+        attributionButton.setTitle(L10n.Marvel.attribution, for: .normal)
         attributionButton.titleLabel?.font = .systemFont(ofSize: UIFont.smallSystemFontSize)
         attributionButton.addTarget(self, action: #selector(attributionButtonTapped), for: .touchUpInside)
     }

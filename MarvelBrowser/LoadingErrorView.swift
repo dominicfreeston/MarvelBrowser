@@ -17,14 +17,14 @@ class LoadingErrorView: UIView {
     }
 
     private func setup() {
-        imageView.image = #imageLiteral(resourceName: "cross")
+        imageView.image = Asset.cross.image
         imageView.contentMode = .center
 
-        messageView.text = "Loading failed!\nMaybe it's Magneto?"
+        messageView.text = L10n.Allcharacters.errorMessage
         messageView.numberOfLines = 0
         messageView.textAlignment = .center
 
-        tryAgainButton.setTitle("Try Again", for: .normal)
+        tryAgainButton.setTitle(L10n.Allcharacters.tryAgain, for: .normal)
         tryAgainButton.tintColor = .marvelRed
         tryAgainButton.isUserInteractionEnabled = false
 

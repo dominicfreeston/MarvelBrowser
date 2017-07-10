@@ -8,6 +8,7 @@ target 'MarvelBrowser' do
   pod 'PureLayout', '3.0.2'
   pod 'Unbox', '2.5.0'
   pod 'Dwifft', '0.6.2'
+  pod 'SwiftGen', '4.2.1'
 
   target 'MarvelBrowserTests' do
     inherit! :search_paths

@@ -9,6 +9,7 @@ PODS:
   - RxCocoa (3.5.0):
     - RxSwift (~> 3.4)
   - RxSwift (3.5.0)
+  - SwiftGen (4.2.1)
   - Unbox (2.5.0)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - PureLayout (= 3.0.2)
   - RxCocoa (= 3.5.0)
   - RxSwift (= 3.5.0)
+  - SwiftGen (= 4.2.1)
   - Unbox (= 2.5.0)
 
 SPEC CHECKSUMS:
@@ -25,8 +27,9 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  SwiftGen: 2ba2a88fc6130b96e38e2baa0029e4bd222ffd85
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 
-PODFILE CHECKSUM: 4a3de1b38ce24c44bd16c95e771a7099fa11583d
+PODFILE CHECKSUM: e21aa684699aa67a75871878280c0285871b361d
 
 COCOAPODS: 1.2.1
