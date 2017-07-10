@@ -134,7 +134,8 @@ private extension MarvelCharactersResponse {
         return MarvelCharactersResponse(
             offset: offset,
             total: total,
-            characters: characters
+            characters: characters,
+            originalResponse: originalResponse
         )
     }
 }

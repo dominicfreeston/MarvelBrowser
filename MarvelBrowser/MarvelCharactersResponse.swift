@@ -5,6 +5,8 @@ struct MarvelCharactersResponse {
     let offset: Int
     let total: Int
     let characters: [MarvelCharacter]
+
+    let originalResponse: [String: Any]
 }
 
 extension MarvelCharactersResponse: Unboxable {
@@ -15,5 +17,6 @@ extension MarvelCharactersResponse: Unboxable {
         self.offset = try dataUnboxer.unbox(key: "offset")
         self.total = try dataUnboxer.unbox(key: "total")
         self.characters = try dataUnboxer.unbox(key: "results", allowInvalidElements: false)
+        self.originalResponse = unboxer.dictionary
     }
 }
