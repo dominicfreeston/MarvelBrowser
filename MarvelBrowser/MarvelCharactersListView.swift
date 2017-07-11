@@ -23,7 +23,14 @@ class MarvelCharacterListView: UIView {
         adapter.setup(tableView: tableView)
 
         addSubview(tableView)
-        tableView.autoPinEdgesToSuperviewEdges()
+
+        let extraLength: CGFloat = 3000
+        tableView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        tableView.autoPinEdge(toSuperviewEdge: .bottom, withInset: -extraLength)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: extraLength, right: 0)
+        tableView.scrollIndicatorInsets = tableView.contentInset
+
+        clipsToBounds = true
     }
 }
 
