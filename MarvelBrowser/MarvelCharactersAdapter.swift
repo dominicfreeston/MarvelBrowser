@@ -5,13 +5,11 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     var charactersList: DiffedList = .empty {
         didSet {
             processChanges(newState: charactersList.sectionedValues, diff: charactersList.diff)
-            sectionedValues = charactersList.sectionedValues
-//            tableView?.reloadData()
         }
     }
 
     weak var tableView: UITableView?
-    var sectionedValues = SectionedValues<Int, CharactersListItem>([])
+    var sectionedValues = DiffedList.empty.sectionedValues
 
     var loadMoreAction: (() -> Void)?
 
@@ -72,7 +70,7 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
 
-    var startedProcessing = false
+    // Copied from Dwifft
     func processChanges(newState: SectionedValues<Int, CharactersListItem>, diff: [SectionedDiffStep<Int, CharactersListItem>]) {
         guard !diff.isEmpty, let tableView = self.tableView else { return }
 
