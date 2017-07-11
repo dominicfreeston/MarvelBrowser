@@ -8,6 +8,7 @@ protocol MarvelCharactersCachingDataSource: MarvelCharactersDataSource {
 class MarvelCharactersDiskDataSource: MarvelCharactersCachingDataSource {
     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     static let folderName = "responses"
+    static private let queue = DispatchQueue(label: "DiskDataSourceQueue", qos: .background)
 
     init() {
         let url = URL(fileURLWithPath: documentsPath).appendingPathComponent(MarvelCharactersDiskDataSource.folderName)
@@ -24,13 +25,16 @@ class MarvelCharactersDiskDataSource: MarvelCharactersCachingDataSource {
             observer.onCompleted()
 
             return Disposables.create()
-        }
+            }
+        .subscribeOn(ConcurrentDispatchQueueScheduler(queue: MarvelCharactersDiskDataSource.queue))
     }
 
     func cache(response: MarvelCharactersResponse) {
-        if let data = try? JSONSerialization.data(withJSONObject: response.originalResponse, options: []) {
-            let url = MarvelCharactersDiskDataSource.fileURL(forOffset: response.offset)
-            try? data.write(to: url)
+        MarvelCharactersDiskDataSource.queue.async {
+            if let data = try? JSONSerialization.data(withJSONObject: response.originalResponse, options: []) {
+                let url = MarvelCharactersDiskDataSource.fileURL(forOffset: response.offset)
+                try? data.write(to: url)
+            }
         }
     }
 
