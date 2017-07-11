@@ -23,12 +23,12 @@ struct MarvelRequestFactory {
                            timestamp: TimeInterval = Date().timeIntervalSinceReferenceDate) -> URLRequest {
         return marvelRequest(
             path: "/v1/public/characters",
-            parameters: ["offset": "\(offset)"],
+            parameters: [("offset", "\(offset)"), ("limit", "100")],
             timestamp: timestamp
         )
     }
 
-    private func marvelRequest(path: String, parameters: [String: String], timestamp: TimeInterval) -> URLRequest {
+    private func marvelRequest(path: String, parameters: [(String, String)], timestamp: TimeInterval) -> URLRequest {
         guard var components = URLComponents(string: baseURLString) else {
             preconditionFailure("Check your BaseURL")
         }
