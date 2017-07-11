@@ -4,14 +4,14 @@ import Dwifft
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     var charactersList: DiffedList = .empty {
         didSet {
-            processChanges(newState: charactersList.sectionedValues, diff: charactersList.diff)
+            processChanges(diffedList: charactersList)
         }
     }
 
-    weak var tableView: UITableView?
-    var sectionedValues = DiffedList.empty.sectionedValues
-
     var loadMoreAction: (() -> Void)?
+
+    private weak var tableView: UITableView?
+    private var sectionedValues = DiffedList.empty.sectionedValues
 
     func setup(tableView: UITableView) {
         self.tableView = tableView
@@ -70,12 +70,13 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
 
-    // Copied from Dwifft
-    func processChanges(newState: SectionedValues<Int, CharactersListItem>, diff: [SectionedDiffStep<Int, CharactersListItem>]) {
+    // Adapted from Dwifft
+    func processChanges(diffedList: DiffedList) {
+        let diff = diffedList.diff
         guard !diff.isEmpty, let tableView = self.tableView else { return }
 
         tableView.beginUpdates()
-        self.sectionedValues = newState
+        sectionedValues = diffedList.sectionedValues
         for result in diff {
             switch result {
             case let .delete(section, row, _): tableView.deleteRows(at: [IndexPath(row: row, section: section)], with: .automatic)
