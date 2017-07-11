@@ -422,6 +422,7 @@
 				TargetAttributes = {
 					B669CC251F0F9E3B00B80B93 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = V876XMB92U;
 						ProvisioningStyle = Automatic;
 					};
 					B669CC341F0F9E3B00B80B93 = {
@@ -763,6 +764,7 @@
 			baseConfigurationReference = C2A325ABC4CB2AF9206AA431 /* Pods-MarvelBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V876XMB92U;
 				INFOPLIST_FILE = MarvelBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.freeston.MarvelBrowser;
@@ -777,6 +779,7 @@
 			baseConfigurationReference = 9E4463C9D695E7B7DA41FF5E /* Pods-MarvelBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V876XMB92U;
 				INFOPLIST_FILE = MarvelBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.freeston.MarvelBrowser;

@@ -2,17 +2,21 @@ import UIKit
 import Dwifft
 
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var charactersList = MarvelCharactersList.empty {
+    var charactersList: DiffedList = .empty {
         didSet {
-            diffCalculator.sectionedValues = charactersList.asSectionedValues()
+            processChanges(newState: charactersList.sectionedValues, diff: charactersList.diff)
+            sectionedValues = charactersList.sectionedValues
+//            tableView?.reloadData()
         }
     }
 
+    weak var tableView: UITableView?
+    var sectionedValues = SectionedValues<Int, CharactersListItem>([])
+
     var loadMoreAction: (() -> Void)?
-    var diffCalculator: TableViewDiffCalculator<Int, CharactersListItem>!
 
     func setup(tableView: UITableView) {
-        diffCalculator = TableViewDiffCalculator(tableView: tableView)
+        self.tableView = tableView
 
         tableView.register(TableViewCell<MarvelCharacterView>.self)
         tableView.register(TableViewCell<LoadingMoreView>.self)
@@ -27,15 +31,15 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return diffCalculator.numberOfSections()
+        return sectionedValues.sectionsAndValues.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diffCalculator.numberOfObjects(inSection: section)
+        return sectionedValues.sectionsAndValues[section].1.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = diffCalculator.value(atIndexPath: indexPath)
+        let item = sectionedValues.sectionsAndValues[indexPath.section].1[indexPath.row]
 
         switch item {
         case .character(let character):
@@ -59,27 +63,30 @@ class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return diffCalculator.value(atIndexPath: indexPath) == .error
+        return sectionedValues.sectionsAndValues[indexPath.section].1[indexPath.row] == .error
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if diffCalculator.value(atIndexPath: indexPath) == .error {
+        if sectionedValues.sectionsAndValues[indexPath.section].1[indexPath.row] == .error {
             loadMoreAction?()
         }
     }
-}
 
-private extension MarvelCharactersList {
-    func asSectionedValues() -> SectionedValues<Int, CharactersListItem> {
-        let chars = characters.map(CharactersListItem.character)
+    var startedProcessing = false
+    func processChanges(newState: SectionedValues<Int, CharactersListItem>, diff: [SectionedDiffStep<Int, CharactersListItem>]) {
+        guard !diff.isEmpty, let tableView = self.tableView else { return }
 
-        if errorOccured {
-            return SectionedValues([(0, chars), (1, [.error])])
-        } else if moreAvailable {
-            return SectionedValues([(0, chars), (1, [.loadMore])])
-        } else {
-            return SectionedValues([(0, chars)])
+        tableView.beginUpdates()
+        self.sectionedValues = newState
+        for result in diff {
+            switch result {
+            case let .delete(section, row, _): tableView.deleteRows(at: [IndexPath(row: row, section: section)], with: .automatic)
+            case let .insert(section, row, _): tableView.insertRows(at: [IndexPath(row: row, section: section)], with: .automatic)
+            case let .sectionDelete(section, _): tableView.deleteSections(IndexSet(integer: section), with: .automatic)
+            case let .sectionInsert(section, _): tableView.insertSections(IndexSet(integer: section), with: .automatic)
+            }
         }
+        tableView.endUpdates()
     }
 }
 

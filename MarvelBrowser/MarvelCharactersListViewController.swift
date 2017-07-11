@@ -1,11 +1,39 @@
 import UIKit
 import PureLayout
 import RxSwift
+import RxCocoa
+import Dwifft
 
 let MARVEL_USE_CASE = MarvelCharactersUseCase(
     apiDataSource: MarvelAPICharactersDataSource(),
     storageDataSource: MarvelCharactersDiskDataSource()
 )
+
+struct DiffedList {
+    let sectionedValues: SectionedValues<Int, CharactersListItem>
+    let diff: [SectionedDiffStep<Int, CharactersListItem>]
+}
+
+extension DiffedList {
+    init(_ previous: DiffedList, _ next: MarvelCharactersList) {
+        let previous = previous.sectionedValues
+        let next = next.asSectionedValues()
+
+        self.sectionedValues = next
+
+        let start = Date()
+        self.diff = Dwifft.diff(lhs: previous, rhs: next)
+        let totalTime = Date().timeIntervalSince(start)
+        print("**** TOTAL TIME \(totalTime) *****")
+    }
+
+    static var empty: DiffedList {
+        return DiffedList(
+            sectionedValues: SectionedValues([]),
+            diff: []
+        )
+    }
+}
 
 class MarvelCharacterListViewController: UIViewController {
     private let useCase: MarvelCharactersUseCaseType
@@ -30,6 +58,8 @@ class MarvelCharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Logging.URLRequests = { _ in return false }
+
         setupViews()
         setupLayout()
 
@@ -37,6 +67,7 @@ class MarvelCharacterListViewController: UIViewController {
 
         useCase
             .characters()
+            .scan(DiffedList.empty, accumulator: DiffedList.init)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: listView.update)
             .addDisposableTo(disposeBag)
