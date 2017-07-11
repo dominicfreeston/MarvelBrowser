@@ -7,8 +7,8 @@ struct DiffedList {
 }
 
 extension DiffedList {
-    init(_ previous: DiffedList, _ next: MarvelCharactersList) {
-        let previous = previous.sectionedValues
+    init(_ previous: MarvelCharactersList, _ next: MarvelCharactersList) {
+        let previous = previous.asSectionedValues()
         let next = next.asSectionedValues()
 
         self.sectionedValues = next
@@ -17,22 +17,24 @@ extension DiffedList {
 
     static var empty: DiffedList {
         return DiffedList(
-            sectionedValues: SectionedValues([(0, []),(1, [])]),
+            sectionedValues: SectionedValues([(0, []),(1, [.loadMore])]),
             diff: []
         )
     }
 
     private static func diff(lhs: SectionedValues<Int, CharactersListItem>,
                              rhs: SectionedValues<Int, CharactersListItem>) -> [SectionedDiffStep<Int, CharactersListItem>] {
+        var operations = [SectionedDiffStep<Int, CharactersListItem>]()
+
         // Append new items
         let charactersSectionIndex = 0
         let count = lhs.sectionsAndValues[charactersSectionIndex].1.count
-        let newValues = rhs.sectionsAndValues[charactersSectionIndex].1.suffix(from: count)
-
-        var operations = [SectionedDiffStep<Int, CharactersListItem>]()
-
-        for (index, value) in newValues.enumerated() {
-            operations.append(.insert(charactersSectionIndex, index + count, value))
+        let newCount = rhs.sectionsAndValues[charactersSectionIndex].1.count
+        if newCount > count {
+            let newValues = rhs.sectionsAndValues[charactersSectionIndex].1.suffix(from: count)
+            for (index, value) in newValues.enumerated() {
+                operations.append(.insert(charactersSectionIndex, index + count, value))
+            }
         }
 
         // Update messaging (loading/error) cell
@@ -53,7 +55,7 @@ extension DiffedList {
         case (nil, nil):
             break
         }
-        
+
         return operations
     }
 }
@@ -67,7 +69,7 @@ private extension MarvelCharactersList {
         } else if moreAvailable {
             return SectionedValues([(0, chars), (1, [.loadMore])])
         } else {
-            return SectionedValues([(0, chars)])
+            return SectionedValues([(0, chars), (1, [])])
         }
     }
 }

@@ -40,7 +40,6 @@ class MarvelCharacterListViewController: UIViewController {
 
         useCase
             .characters()
-            .scan(DiffedList.empty, accumulator: DiffedList.init)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: listView.update)
             .addDisposableTo(disposeBag)

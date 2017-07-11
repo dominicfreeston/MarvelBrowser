@@ -2,9 +2,10 @@ import UIKit
 import Dwifft
 
 class MarvelCharactersAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
-    var charactersList: DiffedList = .empty {
+    var charactersList: MarvelCharactersList = .empty {
         didSet {
-            processChanges(diffedList: charactersList)
+            let diffedList = DiffedList(oldValue, charactersList)
+            processChanges(diffedList: diffedList)
         }
     }
 
