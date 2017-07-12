@@ -1,6 +1,6 @@
 # Marvel Browser
 
-A demo application making use of the Marvel API; a playground for exploring clean code and architecture (using [RxSwift](RxSwift/RxCocoa](https://github.com/ReactiveX/RxSwift)).
+A demo application making use of the Marvel API; a playground for exploring clean code and architecture (using [RxSwift](https://github.com/ReactiveX/RxSwift)).
 
 ### Goals
 
