@@ -171,6 +171,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B654468C1FAA23F2001C7603 /* MarvelCharacters */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6B7FD1F128931009267EB /* Model */,
+				B6A6B7FC1F1288EF009267EB /* UI */,
+			);
+			path = MarvelCharacters;
+			sourceTree = "<group>";
+		};
 		B669CC1D1F0F9E3B00B80B93 = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +207,7 @@
 				B6F38CEE1F10D625000A5BA8 /* Common */,
 				B6A6B7FE1F128993009267EB /* Helpers */,
 				B6F38CF91F10D7A0000A5BA8 /* Image */,
-				B6A6B7FD1F128931009267EB /* MarvelCharacters/Model */,
-				B6A6B7FC1F1288EF009267EB /* MarvelCharacters/UI */,
+				B654468C1FAA23F2001C7603 /* MarvelCharacters */,
 				B6E0F4AF1F142382008771D2 /* Resources */,
 			);
 			path = MarvelBrowser;
@@ -208,13 +216,13 @@
 		B669CC381F0F9E3B00B80B93 /* MarvelBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				B669CC391F0F9E3B00B80B93 /* Info.plist */,
 				B6A6B7E61F126097009267EB /* Common */,
 				B6F38CEF1F10D660000A5BA8 /* Helpers */,
 				B6F38CFB1F10D7CA000A5BA8 /* Image */,
 				B6F38CFA1F10D7BF000A5BA8 /* MarvelCharacters */,
-				B6A6B7FF1F128AF5009267EB /* MarvelCharacters/SnapshotTests */,
+				B6A6B7FF1F128AF5009267EB /* SnapshotTests */,
 				B6BC4AA91F105013000AD03E /* Test Data */,
+				B669CC391F0F9E3B00B80B93 /* Info.plist */,
 			);
 			path = MarvelBrowserTests;
 			sourceTree = "<group>";
@@ -226,34 +234,34 @@
 				B6A6B7EB1F126A24009267EB /* MarvelRequestFactoryTests.swift */,
 				B6A6B7E71F1260B1009267EB /* StringMD5Tests.swift */,
 			);
-			name = Common;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		B6A6B7FC1F1288EF009267EB /* MarvelCharacters/UI */ = {
+		B6A6B7FC1F1288EF009267EB /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				B67663BF1F157A6A00999726 /* DiffedList.swift */,
+				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
 				B6F38D041F10EE6F000A5BA8 /* MarvelCharactersAdapter.swift */,
 				B6A6B7F81F127FBC009267EB /* MarvelCharactersListItem.swift */,
 				B6F38D0A1F10F6B2000A5BA8 /* MarvelCharactersListView.swift */,
 				B6F38D0E1F1156E2000A5BA8 /* MarvelCharactersListViewController.swift */,
 				B6E0F4AD1F141EDE008771D2 /* MarvelCharactersListViewNavigator.swift */,
-				B6F38CFC1F10D7E9000A5BA8 /* MarvelCharacterView.swift */,
 			);
-			name = MarvelCharacters/UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		B6A6B7FD1F128931009267EB /* MarvelCharacters/Model */ = {
+		B6A6B7FD1F128931009267EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B669CC461F103C1600B80B93 /* MarvelCharacter.swift */,
-				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
 				B6A6B8031F12D5DE009267EB /* MarvelCharactersCachingDataSource.swift */,
+				B6C0DFC51F12456A00647411 /* MarvelCharactersDataSource.swift */,
 				B6C0DFC11F123DAB00647411 /* MarvelCharactersList.swift */,
 				B6BC4AA51F104E20000AD03E /* MarvelCharactersResponse.swift */,
 				B6C0DFBB1F12293500647411 /* MarvelCharactersUseCase.swift */,
 			);
-			name = MarvelCharacters/Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B6A6B7FE1F128993009267EB /* Helpers */ = {
@@ -267,16 +275,16 @@
 				B6BC4AAA1F105067000AD03E /* Unboxer+JSONInitExtension.swift */,
 				B6C0DFB91F12251C00647411 /* UnitTestEnvironment.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
-		B6A6B7FF1F128AF5009267EB /* MarvelCharacters/SnapshotTests */ = {
+		B6A6B7FF1F128AF5009267EB /* SnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6F38D0C1F11477A000A5BA8 /* MarvelCharactersListViewSnapshotTests.swift */,
 				B6F38D001F10D96D000A5BA8 /* MarvelCharacterViewSnapshotTests.swift */,
+				B6F38D0C1F11477A000A5BA8 /* MarvelCharactersListViewSnapshotTests.swift */,
 			);
-			name = MarvelCharacters/SnapshotTests;
+			path = SnapshotTests;
 			sourceTree = "<group>";
 		};
 		B6BC4AA91F105013000AD03E /* Test Data */ = {
@@ -287,43 +295,43 @@
 				B6BC4AA71F104EBC000AD03E /* charactersResponse.json */,
 				B669CC4A1F103D5500B80B93 /* imageAsset.json */,
 			);
-			name = "Test Data";
+			path = "Test Data";
 			sourceTree = "<group>";
 		};
 		B6E0F4AF1F142382008771D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B6E0F4B51F142A43008771D2 /* L10n.swift */,
 				B6E0F4B61F142A43008771D2 /* Assets.swift */,
+				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
 				B6C0DFC91F12589400647411 /* Bridging-Header.h */,
 				B669CC301F0F9E3B00B80B93 /* Info.plist */,
-				B669CC2B1F0F9E3B00B80B93 /* Assets.xcassets */,
+				B6E0F4B51F142A43008771D2 /* L10n.swift */,
 				B669CC2D1F0F9E3B00B80B93 /* LaunchScreen.storyboard */,
 				B6E0F4B21F1428A1008771D2 /* Localizable.strings */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B6F38CEE1F10D625000A5BA8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				B669CC291F0F9E3B00B80B93 /* AppDelegate.swift */,
-				B6C0DFBF1F122C6F00647411 /* LoadingMoreView.swift */,
 				B6A6B80A1F13F367009267EB /* LoadingErrorView.swift */,
+				B6C0DFBF1F122C6F00647411 /* LoadingMoreView.swift */,
 				B6A6B7E91F126786009267EB /* MarvelRequestFactory.swift */,
 			);
-			name = Common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		B6F38CEF1F10D660000A5BA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B6A6B8101F13FC7E009267EB /* MarvelCharactersList+EasyInit.swift */,
 				B6F38CE41F10D12A000A5BA8 /* MockImageService.swift */,
 				B6F38D021F10ED52000A5BA8 /* RecordSnapshots.swift */,
 				B669CC4C1F103DDC00B80B93 /* XCTestCase+LoadExtension.swift */,
-				B6A6B8101F13FC7E009267EB /* MarvelCharactersList+EasyInit.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B6F38CF91F10D7A0000A5BA8 /* Image */ = {
@@ -333,7 +341,7 @@
 				B6F38CE61F10D161000A5BA8 /* ImageService.swift */,
 				B6F38CEC1F10D237000A5BA8 /* URLImageView.swift */,
 			);
-			name = Image;
+			path = Image;
 			sourceTree = "<group>";
 		};
 		B6F38CFA1F10D7BF000A5BA8 /* MarvelCharacters */ = {
@@ -341,11 +349,11 @@
 			children = (
 				B669CC501F1045A900B80B93 /* MarvelCharacterJSONParsingTest.swift */,
 				B6F38D081F10F221000A5BA8 /* MarvelCharactersAdapterTests.swift */,
+				B6A6B8061F13DB35009267EB /* MarvelCharactersListViewTests.swift */,
 				B6BC4AA31F104DED000AD03E /* MarvelCharactersResponseJSONParsingTests.swift */,
 				B6C0DFC71F1246A800647411 /* MarvelCharactersUseCaseTests.swift */,
-				B6A6B8061F13DB35009267EB /* MarvelCharactersListViewTests.swift */,
 			);
-			name = MarvelCharacters;
+			path = MarvelCharacters;
 			sourceTree = "<group>";
 		};
 		B6F38CFB1F10D7CA000A5BA8 /* Image */ = {
@@ -354,7 +362,7 @@
 				B669CC481F103D2400B80B93 /* ImageAssetJSONParsingTests.swift */,
 				B6F38CE81F10D223000A5BA8 /* URLImageViewSnapshotTests.swift */,
 			);
-			name = Image;
+			path = Image;
 			sourceTree = "<group>";
 		};
 		FCF048BF880D39050057156D /* Pods */ = {
@@ -523,7 +531,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "RSROOT=$SRCROOT/MarvelBrowser\n\n\"$PODS_ROOT/SwiftGen/bin/swiftgen\" \\\nimages -t swift3 \"$RSROOT/Assets.xcassets\" \\\n--output \"$RSROOT/Assets.swift\"\n\n\"$PODS_ROOT/SwiftGen/bin/swiftgen\" \\\nstrings -t dot-syntax-swift3 \"$RSROOT/Localizable.strings\" \\\n--output \"$RSROOT/L10n.swift\"";
+			shellScript = "RSROOT=$SRCROOT/MarvelBrowser/Resources\n\n\"$PODS_ROOT/SwiftGen/bin/swiftgen\" \\\nimages -t swift3 \"$RSROOT/Assets.xcassets\" \\\n--output \"$RSROOT/Assets.swift\"\n\n\"$PODS_ROOT/SwiftGen/bin/swiftgen\" \\\nstrings -t dot-syntax-swift3 \"$RSROOT/Localizable.strings\" \\\n--output \"$RSROOT/L10n.swift\"";
 		};
 		C3F769FD369F66E87DA51FCB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -665,6 +673,7 @@
 				B669CC2E1F0F9E3B00B80B93 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -769,11 +778,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V876XMB92U;
-				INFOPLIST_FILE = MarvelBrowser/Info.plist;
+				INFOPLIST_FILE = MarvelBrowser/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.freeston.MarvelBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarvelBrowser/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarvelBrowser/Resources/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -784,11 +793,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V876XMB92U;
-				INFOPLIST_FILE = MarvelBrowser/Info.plist;
+				INFOPLIST_FILE = MarvelBrowser/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.freeston.MarvelBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarvelBrowser/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarvelBrowser/Resources/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
