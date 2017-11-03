@@ -5,7 +5,7 @@ extension XCTestCase {
                   type: String,
                   file: StaticString = #file,
                   line: UInt = #line) -> Data {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle(for: Swift.type(of: self))
 
         guard let path = bundle.path(forResource: name, ofType: type) else {
             XCTFail("Invalid path for file: \(name)", file: file, line: line)

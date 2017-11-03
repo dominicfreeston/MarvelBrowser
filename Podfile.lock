@@ -6,9 +6,9 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - PureLayout (3.0.2)
-  - RxCocoa (3.5.0):
-    - RxSwift (~> 3.4)
-  - RxSwift (3.5.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
   - SwiftGen (4.2.1)
   - Unbox (2.5.0)
 
@@ -16,20 +16,20 @@ DEPENDENCIES:
   - Dwifft (= 0.6.2)
   - FBSnapshotTestCase (= 2.1.4)
   - PureLayout (= 3.0.2)
-  - RxCocoa (= 3.5.0)
-  - RxSwift (= 3.5.0)
+  - RxCocoa
+  - RxSwift
   - SwiftGen (= 4.2.1)
   - Unbox (= 2.5.0)
 
 SPEC CHECKSUMS:
   Dwifft: ee21f0fe857852c4f0b7b5070f1493aff82fc512
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
-  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SwiftGen: 2ba2a88fc6130b96e38e2baa0029e4bd222ffd85
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 
-PODFILE CHECKSUM: e21aa684699aa67a75871878280c0285871b361d
+PODFILE CHECKSUM: 2eda75de1b075c9f72aa6d7b42bed4970fd6b5df
 
 COCOAPODS: 1.2.1

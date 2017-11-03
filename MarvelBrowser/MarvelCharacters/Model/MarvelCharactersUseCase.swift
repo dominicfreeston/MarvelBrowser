@@ -47,7 +47,7 @@ class MarvelCharactersUseCase: MarvelCharactersUseCaseType {
                 onNext: updateCharactersList,
                 onError: updateWithError,
                 onDisposed: stopLoading)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     private func updateCharactersList(response: MarvelCharactersResponse) {

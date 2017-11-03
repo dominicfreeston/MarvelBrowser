@@ -44,7 +44,7 @@ class LoadingErrorView: UIView {
 
         stackView.autoPinEdgesToSuperviewMargins()
 
-        imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        tryAgainButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        imageView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
+        tryAgainButton.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
     }
 }

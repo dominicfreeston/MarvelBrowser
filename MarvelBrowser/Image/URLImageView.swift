@@ -35,7 +35,7 @@ class URLImageView: UIImageView {
         imageService.image(for: url)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: crossFade)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     func crossFade(image: UIImage) {

@@ -42,7 +42,7 @@ class MarvelCharacterListViewController: UIViewController {
             .characters()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: listView.update)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     @objc private func attributionButtonTapped() {
@@ -63,6 +63,6 @@ class MarvelCharacterListViewController: UIViewController {
         attributionButton.autoPinEdge(toSuperviewEdge: .bottom)
         attributionButton.autoPinEdge(toSuperviewMargin: .trailing)
         attributionButton.autoPinEdge(.top, to: .bottom, of: listView)
-        attributionButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        attributionButton.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
     }
 }
